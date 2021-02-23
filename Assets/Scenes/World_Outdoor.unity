@@ -172,7 +172,7 @@ MonoBehaviour:
   voiceDetection: 1
   voiceDetectionThreshold: 0.05
   voiceDetectionDelayMs: 500
-  unityMicrophoneDevice: Headset (WH-1000XM3 Hands-Free AG Audio)
+  unityMicrophoneDevice: Headset Microphone (Oculus Virtual Audio Device)
   photonMicrophoneDeviceId: 0
   interestGroup: 0
   debugEchoMode: 0
@@ -363,7 +363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GenericVRPlayerPrefab: {fileID: 3344887222022337880, guid: a4dd3e445f8bbdf4fb9c4f476eaf440f, type: 3}
-  SpawnPosition: {x: -22, y: 6.5, z: -24}
+  SpawnPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &842148583
 GameObject:
   m_ObjectHideFlags: 0
