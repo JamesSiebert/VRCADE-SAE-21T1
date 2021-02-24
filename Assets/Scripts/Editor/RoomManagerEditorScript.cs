@@ -24,5 +24,35 @@ public class RoomManagerEditorScript : Editor
         {
             roomManager.OnEnterRoomButtonClicked_Outdoor(); 
         }
+        
+        if(GUILayout.Button("Join Lobby Room"))
+        {
+            roomManager.OnEnterRoomButtonClicked_Lobby();
+        }
+        
+        if(GUILayout.Button("Join Vertigo Room"))
+        {
+            roomManager.OnEnterRoomButtonClicked_Vertigo();
+        }
+        
+        if(GUILayout.Button("Join Air Hockey Room"))
+        {
+            roomManager.OnEnterRoomButtonClicked_AirHockey();
+        }
+        
+        if(GUILayout.Button("Join Basketball"))
+        {
+            roomManager.OnEnterRoomButtonClicked_Basketball();
+        }
+        
+        if(GUILayout.Button("Join Archery Room"))
+        {
+            roomManager.OnEnterRoomButtonClicked_Archery();
+        }
+        
+        if(GUILayout.Button("Join Shooter Room"))
+        {
+            roomManager.OnEnterRoomButtonClicked_Shooter();
+        }
     }
 }

@@ -62,7 +62,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     public void OnEnterRoomButtonClicked_Outdoor()
     {
-        mapType = MultiplayerVRConstants.MAPT_TYPE_OUTDOOR;
+        mapType = MultiplayerVRConstants.MAP_TYPE_OUTDOOR;
         ExitGames.Client.Photon.Hashtable expectedCustomRoomProperties = new ExitGames.Client.Photon.Hashtable() { {MultiplayerVRConstants.MAP_TYPE_KEY, mapType} };
         PhotonNetwork.JoinRandomRoom(expectedCustomRoomProperties, 0);
     }
@@ -90,7 +90,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     public void OnEnterRoomButtonClicked_AirHockey()
     {
-        mapType = MultiplayerVRConstants.MAP_TYPE_AIR_HOCKEY
+        mapType = MultiplayerVRConstants.MAP_TYPE_AIR_HOCKEY;
         ExitGames.Client.Photon.Hashtable expectedCustomRoomProperties = new ExitGames.Client.Photon.Hashtable() { {MultiplayerVRConstants.MAP_TYPE_KEY, mapType} };
         PhotonNetwork.JoinRandomRoom(expectedCustomRoomProperties, 0);
     }
@@ -152,7 +152,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
                     // Load school scene
                     PhotonNetwork.LoadLevel("World_School");
                 } 
-                else if ((string)mapType == MultiplayerVRConstants.MAPT_TYPE_OUTDOOR)
+                else if ((string)mapType == MultiplayerVRConstants.MAP_TYPE_OUTDOOR)
                 {
                     // Load outdoor scene
                     PhotonNetwork.LoadLevel("World_Outdoor");
@@ -219,7 +219,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         {
             Debug.Log(room.Name);
 
-            if(room.Name.Contains(MultiplayerVRConstants.MAPT_TYPE_OUTDOOR))
+            if(room.Name.Contains(MultiplayerVRConstants.MAP_TYPE_OUTDOOR))
             {
                 // Update the outdoor room map
                 Debug.Log("Room is an OUTDOOR map. Player count is: " + room.PlayerCount);
@@ -256,9 +256,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
                 Debug.Log("Room is a ARCHERY map. Player count is: " + room.PlayerCount);
                 OccupancyRateText_ForArchery.text = room.PlayerCount + " / " + 20;
             }
-            else if (room.Name.Contains(MultiplayerVRConstants.MAP_TYPE_SCHOOL))
+            else if (room.Name.Contains(MultiplayerVRConstants.MAP_TYPE_SHOOTER))
             {
-                // Update the school room map
                 Debug.Log("Room is a SHOOTER map. Player count is: " + room.PlayerCount);
                 OccupancyRateText_ForShooter.text = room.PlayerCount + " / " + 20;
             }
