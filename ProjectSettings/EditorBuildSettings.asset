@@ -17,6 +17,24 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/World_School.unity
     guid: b72244336204212439510723e69fa9f9
+  - enabled: 1
+    path: Assets/Scenes/Room_Lobby.unity
+    guid: 3077ae346ce66944dbcea5439cf4e8b7
+  - enabled: 1
+    path: Assets/Scenes/Room_Vertigo.unity
+    guid: 85ce6bc6f68849d479a4706349c4ebc2
+  - enabled: 1
+    path: Assets/Scenes/Room_AirHockey.unity
+    guid: f3b7a03c57d211a4095bd1d776a23fcf
+  - enabled: 1
+    path: Assets/Scenes/Room_Basketball.unity
+    guid: 144f3efb85eeeb741b3f44c27d0f4d55
+  - enabled: 1
+    path: Assets/Scenes/Room_Archery.unity
+    guid: 13714880c53fba344b422d965b598f0c
+  - enabled: 1
+    path: Assets/Scenes/Room_Shooter.unity
+    guid: 56a688a629da1de4aa695fbb55c6bd7d
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: caa8a66d31f894340bb5b8b5ed4f06ec, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 2cbb5a6daab466f49b1b84960707f3f0, type: 2}
