@@ -1,0 +1,699 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Arrow" Collapsed="true">
+    <Position X="18.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIgAAIAgAEJAAAAAAAAAAAABAAQQAAIAAAABAgAEA=</HashCode>
+      <FileName>Assets\_Archery\Scripts\Arrow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Arrow_Hit" Collapsed="true">
+    <Position X="20.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Archery\Scripts\Arrow_Hit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bow" Collapsed="true">
+    <Position X="18.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAgAAAAQAAAAAAAAAAAAIAAAAAAAEA=</HashCode>
+      <FileName>Assets\_Archery\Scripts\Bow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Notch" Collapsed="true">
+    <Position X="25.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAARoAACAAAAAGIAAAAAAAgCEA=</HashCode>
+      <FileName>Assets\_Archery\Scripts\Notch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Puller" Collapsed="true">
+    <Position X="24" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAABAAgAAAAAAAAQAEAAQAAAIAAAAAgAAA=</HashCode>
+      <FileName>Assets\_Archery\Scripts\Puller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Quiver" Collapsed="true">
+    <Position X="25.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAABAAAAAAAAAAAAAgAQAAAAAAAChAAAEA=</HashCode>
+      <FileName>Assets\_Archery\Scripts\Quiver.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Target" Collapsed="true">
+    <Position X="20.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAIAAAACCAAACAACAAAAAAAAAAEQAAIAIAAAAAAAQ=</HashCode>
+      <FileName>Assets\_Archery\Scripts\Target.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TargetSpawner" Collapsed="true">
+    <Position X="22.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAACAAAAAAAAAAAAAAAAAAAACACAAAAEAAQAA=</HashCode>
+      <FileName>Assets\_Archery\Scripts\TargetSpawner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BasketballCollider" Collapsed="true">
+    <Position X="31" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgQAAAAAAAAAAAAAAAAAAAAAAAAAAgAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\BasketballCollider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VRKeyboardManager" Collapsed="true">
+    <Position X="22.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABQAAgAMgAAABAQKAAAAACAQAgAgQAAAAIAAAAAiAAA=</HashCode>
+      <FileName>Assets\IRONHEAD Games\VRKeys\Scripts\VRKeyboardManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AppSettingsExtensions" Collapsed="true">
+    <Position X="17" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Photon\PhotonChat\Demos\DemoChat\AppSettingsExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChannelSelector" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAgAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Photon\PhotonChat\Demos\DemoChat\ChannelSelector.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ChatAppIdCheckerUI" Collapsed="true">
+    <Position X="17" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Photon\PhotonChat\Demos\DemoChat\ChatAppIdCheckerUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChatGui" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CGQBAFoQQCqDGEQAABCAAICUAEBggYIYCRAwTAAQAJA=</HashCode>
+      <FileName>Assets\Photon\PhotonChat\Demos\DemoChat\ChatGui.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FriendItem" Collapsed="true">
+    <Position X="18.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAIAAAAAAABAAAAEAAAAQAAAEA=</HashCode>
+      <FileName>Assets\Photon\PhotonChat\Demos\DemoChat\FriendItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IgnoreUiRaycastWhenInactive" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Photon\PhotonChat\Demos\DemoChat\IgnoreUiRaycastWhenInactive.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NamePickGui" Collapsed="true">
+    <Position X="22.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAACAAACAACAAAAAAAAAAAAAAAACAAAAAAAAgAAAA=</HashCode>
+      <FileName>Assets\Photon\PhotonChat\Demos\DemoChat\NamePickGui.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChangeColor" Collapsed="true">
+    <Position X="22.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Assets\Photon\PhotonVoice\Demos\DemoProximityVoiceChat\Scripts\ChangeColor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChangeName" Collapsed="true">
+    <Position X="24" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Photon\PhotonVoice\Demos\DemoProximityVoiceChat\Scripts\ChangeName.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PointersController" Collapsed="true">
+    <Position X="20.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAQAAAAAACAAAAAAAAAAAAAAEAAAAABAAQAAAAAAAAA=</HashCode>
+      <FileName>Assets\Photon\PhotonVoice\Demos\DemoProximityVoiceChat\Scripts\PointersController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProximityVoiceTrigger" Collapsed="true">
+    <Position X="22.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AASAIAAAACAAAAgAAACAAAAAAAAAAIFAQAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Photon\PhotonVoice\Demos\DemoProximityVoiceChat\Scripts\ProximityVoiceTrigger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MouseLookHelper" Collapsed="true">
+    <Position X="31" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAGAAABAAAIAAAAAAggBAAAIAAAgEAAACAACAAAA=</HashCode>
+      <FileName>Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Scripts\MouseLookHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SoundsForJoinAndLeave" Collapsed="true">
+    <Position X="17" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAIAAAACACAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Scripts\SoundsForJoinAndLeave.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AvatarHolder" Collapsed="true">
+    <Position X="22.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAIAAAAAAACBAEAAAAEAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Assets\Scripts\Avatar Selection Scripts\AvatarHolder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AvatarSelectionManager" Collapsed="true">
+    <Position X="25.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAACAAAGAAAAAAAAAAAEBAAIAAQAAAEgIAQEA=</HashCode>
+      <FileName>Assets\Scripts\Avatar Selection Scripts\AvatarSelectionManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AvatarInputConverter" Collapsed="true">
+    <Position X="24" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIQAAAAJAAQQIAIAACAAAAAEAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\AvatarInputConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ControllerManager" Collapsed="true">
+    <Position X="25.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACaAAAAAAAAQBJYKAAAAAAAYAIEAQAAIgAAAgIAACAA=</HashCode>
+      <FileName>Assets\Scripts\ControllerManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HighlightVoice" Collapsed="true">
+    <Position X="24" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAQAAAAAAAAAAAAAAAAAAAAQAAAAAABAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\HighlightVoice.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InputListener" Collapsed="true">
+    <Position X="29.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACEAAAAAIAAAAAAAAAAIAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\InputListener.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InputListenerSecondaryButton" Collapsed="true">
+    <Position X="31" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAABAAAAIAEgAAAAACAAAAkA=</HashCode>
+      <FileName>Assets\Scripts\InputListenerSecondaryButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LoginManager" Collapsed="true">
+    <Position X="22.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAgAAAEAAAAAAAAAAAAIAAQAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\LoginManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LoginUIManager" Collapsed="true">
+    <Position X="24" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAiAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\LoginUIManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovementController" Collapsed="true">
+    <Position X="17" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAwAAAAAgIAAAAAgAAAAAACAAAAAAQAIAABAAAAICAA=</HashCode>
+      <FileName>Assets\Scripts\MovementController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MultiplayerVRConstants" Collapsed="true">
+    <Position X="18.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAEAAAAABAAAAEIAEgAACAAEAAABAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MultiplayerVRConstants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MultiplayerVRSynchronization" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQCEASBIEpAAACACKAAQjAQCEAACCAEEAQEAAAVCGA=</HashCode>
+      <FileName>Assets\Scripts\MultiplayerVRSynchronization.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NetworkedGrabbing" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAQQIAAAACAABAAEAAAAAAAAAAAAAAAAAACAAYAgAMA=</HashCode>
+      <FileName>Assets\Scripts\NetworkedGrabbing.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PlayerNetworkSetup" Collapsed="true">
+    <Position X="17" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAQQAIAAACAAAAAAQAAACgAAQAAAAAAAAAARAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\PlayerNetworkSetup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerUIManager" Collapsed="true">
+    <Position X="18.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAABAAAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\PlayerUIManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RoomManager" Collapsed="true">
+    <Position X="29.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>hIiAAABAAHQgAAAAAMBgAIABAAEAAIAAEAIAAAAKQIA=</HashCode>
+      <FileName>Assets\Scripts\RoomManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SpawnManager" Collapsed="true">
+    <Position X="18.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAACAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\SpawnManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIManager" Collapsed="true">
+    <Position X="31" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAABAAAABAAAAAAAAAAAIAAAAAIAACA=</HashCode>
+      <FileName>Assets\Scripts\UIManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VirtualWorldManager" Collapsed="true">
+    <Position X="17" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAEAAAAAAAAAAAAAAAAAAAACEQAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\VirtualWorldManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VoiceDebugUI" Collapsed="true">
+    <Position X="18.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAQAAAAAAAAAAAAAAAAAABAAAIAAAAAIAAiEA=</HashCode>
+      <FileName>Assets\Scripts\VoiceDebugUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VRKeys.BackspaceKey">
+    <Position X="1" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\IRONHEAD Games\VRKeys\Scripts\BackspaceKey.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VRKeys.CancelKey">
+    <Position X="3.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\IRONHEAD Games\VRKeys\Scripts\CancelKey.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VRKeys.ClearKey">
+    <Position X="5.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\IRONHEAD Games\VRKeys\Scripts\ClearKey.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VRKeys.Controller" Collapsed="true">
+    <Position X="24" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAIEAAAAAAgAAAEAAgAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\IRONHEAD Games\VRKeys\Scripts\Controller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VRKeys.EnterKey">
+    <Position X="10" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\IRONHEAD Games\VRKeys\Scripts\EnterKey.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VRKeys.DemoScene" Collapsed="true">
+    <Position X="29.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAgAIAAAAAAAIAAQAIAAAAAAgAAAIAAAAAAAACgA=</HashCode>
+      <FileName>Assets\IRONHEAD Games\VRKeys\Scripts\Example\DemoScene.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VRKeys.HandCollider" Collapsed="true">
+    <Position X="20.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAIAAAIAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\IRONHEAD Games\VRKeys\Scripts\HandCollider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VRKeys.Key" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAICUIACCAAJAAACAACAAAAAIIQCAAQAIyhAAACFA=</HashCode>
+      <FileName>Assets\IRONHEAD Games\VRKeys\Scripts\Key.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VRKeys.Keyboard" Collapsed="true">
+    <Position X="18.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BELHISAMUTIKQcBAWIDCCAACCAKEIIYKgABgCWGAAgA=</HashCode>
+      <FileName>Assets\IRONHEAD Games\VRKeys\Scripts\Keyboard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VRKeys.Layout" Collapsed="true">
+    <Position X="1.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MBBAgAAAAAAAEQAAAAYAgIQEAQCAAQAAIgAAAAAGAAA=</HashCode>
+      <FileName>Assets\IRONHEAD Games\VRKeys\Scripts\Layout.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VRKeys.LayoutList" Collapsed="true">
+    <Position X="20.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\IRONHEAD Games\VRKeys\Scripts\LayoutList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VRKeys.LetterKey">
+    <Position X="7.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAACCACAAAAAABIAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\IRONHEAD Games\VRKeys\Scripts\LetterKey.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VRKeys.Mallet" Collapsed="true">
+    <Position X="25.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAGwAAAAEgICAAAIAAAAAAEAAAAAAABAAAAEA=</HashCode>
+      <FileName>Assets\IRONHEAD Games\VRKeys\Scripts\Mallet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VRKeys.Placement" Collapsed="true">
+    <Position X="31" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAQACQAIAAACRFAEBAAAAIAAgACAAAIAAAAAAiEIAEA=</HashCode>
+      <FileName>Assets\IRONHEAD Games\VRKeys\Scripts\Placement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VRKeys.ShiftKey">
+    <Position X="12.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAACACCAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\IRONHEAD Games\VRKeys\Scripts\ShiftKey.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VRKeys.SpaceKey">
+    <Position X="14.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\IRONHEAD Games\VRKeys\Scripts\SpaceKey.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VRKeys.Layouts.Dvorak" Collapsed="true">
+    <Position X="0.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\IRONHEAD Games\VRKeys\Scripts\Layouts\Dvorak.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VRKeys.Layouts.French" Collapsed="true">
+    <Position X="2.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\IRONHEAD Games\VRKeys\Scripts\Layouts\French.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Photon.Chat.UtilityScripts.EventSystemSpawner" Collapsed="true">
+    <Position X="17" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Photon\PhotonChat\Demos\Common\EventSystemSpawner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Photon.Chat.UtilityScripts.OnStartDelete" Collapsed="true">
+    <Position X="27.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Photon\PhotonChat\Demos\Common\OnStartDelete.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Photon.Chat.UtilityScripts.TextButtonTransition" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAABAAAAAAAAAAAAAAAAAgAAAIAAAAAQAACEI=</HashCode>
+      <FileName>Assets\Photon\PhotonChat\Demos\Common\TextButtonTransition.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Photon.Chat.UtilityScripts.TextToggleIsOnTransition" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAADAAggAEIAAAQAQAAKAA=</HashCode>
+      <FileName>Assets\Photon\PhotonChat\Demos\Common\TextToggleIsOnTransition.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Photon.Realtime.Demo.ConnectAndJoinRandomLb" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="22.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gEaAAEIAACAAEQAAAEACAIEAAAGBAAIEEAJAAAAAQIA=</HashCode>
+      <FileName>Assets\Photon\PhotonRealtime\Demos\DemoLoadBalancing\ConnectAndJoinRandomLb.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ExitGames.Demos.DemoPunVoice.BaseController" Collapsed="true">
+    <Position X="6.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAIAAAAAqAQAICAAAACAEAAAAAAAUAIRBACAAAAKAA=</HashCode>
+      <FileName>Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Scripts\BaseController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExitGames.Demos.DemoPunVoice.BetterToggle" Collapsed="true">
+    <Position X="17" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAgAAAAAAAAAAAAAAAAAAAAAAAQAAABAAA=</HashCode>
+      <FileName>Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Scripts\BetterToggle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExitGames.Demos.DemoPunVoice.ChangePOV" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EArAAMAAACAACAAAACggAIEoAAAAEAAMGAAAQAAACIo=</HashCode>
+      <FileName>Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Scripts\ChangePOV.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ExitGames.Demos.DemoPunVoice.CharacterInstantiation" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="29.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAABAAAAAAAAAABCAsEAAACIBAABAAAAEyAAQEEAAAA=</HashCode>
+      <FileName>Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Scripts\CharacterInstantiation.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ExitGames.Demos.DemoPunVoice.CharacterInstantiationEditor" Collapsed="true">
+    <Position X="31" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QACAAAAAAAACAABAAAAACAAIAAACAAQAASABQAAAKAA=</HashCode>
+      <FileName>Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Scripts\CharacterInstantiation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExitGames.Demos.DemoPunVoice.FirstPersonController" Collapsed="true">
+    <Position X="5.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAIAAAEAAAAACAQAAAAAAAAAAAACAAAAUAAA=</HashCode>
+      <FileName>Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Scripts\FirstPersonController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExitGames.Demos.DemoPunVoice.Highlighter" Collapsed="true">
+    <Position X="22.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABQAAAAAAEAAAACAAAAEIAACgAAAAABMAAAAAAAACEA=</HashCode>
+      <FileName>Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Scripts\Highlighter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExitGames.Demos.DemoPunVoice.OrthographicController" Collapsed="true">
+    <Position X="7.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAACAIAAAAAAAAACAAAAAAAAAAAAAAQCAAAAAAA=</HashCode>
+      <FileName>Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Scripts\OrthographicController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExitGames.Demos.DemoPunVoice.ThirdPersonController" Collapsed="true">
+    <Position X="7.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Scripts\ThirdPersonController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExitGames.Demos.DemoPunVoice.VoiceDemoUI" Collapsed="true">
+    <Position X="20.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAwAAACEwGAAIAAABQ6ADAACAAADAACIGIIAAIAAiUA=</HashCode>
+      <FileName>Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Scripts\VoiceDemoUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnityStandardAssets.CrossPlatformInput.AxisTouchButton" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACgAAAAAAAIAQAAAJAAAQAAAAAAAAIIABAAAAAACAA=</HashCode>
+      <FileName>Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Standard Assets\CrossPlatformInput\Scripts\AxisTouchButton.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UnityStandardAssets.CrossPlatformInput.ButtonHandler" Collapsed="true">
+    <Position X="20.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAgAAAAAAABAACAAAACQAAAAAAAAAAAIAAAAACAA=</HashCode>
+      <FileName>Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Standard Assets\CrossPlatformInput\Scripts\ButtonHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager" Collapsed="true">
+    <Position X="27.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>mAICAgAAgBKAAwAAAAAAAAAAAAIBAAgAFIAAAABASAQ=</HashCode>
+      <FileName>Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Standard Assets\CrossPlatformInput\Scripts\CrossPlatformInputManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnityStandardAssets.CrossPlatformInput.InputAxisScrollbar" Collapsed="true">
+    <Position X="27.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAACAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Standard Assets\CrossPlatformInput\Scripts\InputAxisScrollbar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnityStandardAssets.CrossPlatformInput.Joystick" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17" Y="4.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="UnityStandardAssets.CrossPlatformInput.Joystick.AxisOption" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Standard Assets\CrossPlatformInput\Scripts\Joystick.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>IECAAAAAACEIAAAAAABAAAAAAAAAIACIAAQAEAAAaAA=</HashCode>
+      <FileName>Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Standard Assets\CrossPlatformInput\Scripts\Joystick.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UnityStandardAssets.CrossPlatformInput.MobileControlRig" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="29.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAIAEACQAAAAAAAAAAAAAAAAAAAAIAAAABAAACAA=</HashCode>
+      <FileName>Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Standard Assets\CrossPlatformInput\Scripts\MobileControlRig.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UnityStandardAssets.CrossPlatformInput.TouchPad" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IGSABAAAACgIAAAAAAAAAAAEAAAAIBSIABQAEACAaAI=</HashCode>
+      <FileName>Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Standard Assets\CrossPlatformInput\Scripts\TouchPad.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UnityStandardAssets.CrossPlatformInput.VirtualInput" Collapsed="true">
+    <Position X="1.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kAACAAAAgBKAAwAAAAAABAAAAEIAAAgIEIABAABCSAQ=</HashCode>
+      <FileName>Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Standard Assets\CrossPlatformInput\Scripts\VirtualInput.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnityStandardAssets.CrossPlatformInput.PlatformSpecific.MobileInput" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAACAAAAABCAAwAAAAAAAAAAAAAAAAgAAIAAAIAiSAA=</HashCode>
+      <FileName>Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Standard Assets\CrossPlatformInput\Scripts\PlatformSpecific\MobileInput.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnityStandardAssets.CrossPlatformInput.PlatformSpecific.StandaloneInput" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAACAAAAABCAAwAAAAAAAAAAAAAAAAgAAIAAAAACSAA=</HashCode>
+      <FileName>Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Standard Assets\CrossPlatformInput\Scripts\PlatformSpecific\StandaloneInput.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Photon.Voice.Unity.Demos.BackgroundMusicController" Collapsed="true">
+    <Position X="29.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACACAAAAAAAEAEAAAAAAAQAAEA=</HashCode>
+      <FileName>Assets\Photon\PhotonVoice\Demos\DemoVoiceUI\Scripts\BackgroundMusicController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Photon.Voice.Unity.Demos.SidebarToggle" Collapsed="true">
+    <Position X="31" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAgAAAAAAAEAAACAAAAAEA=</HashCode>
+      <FileName>Assets\Photon\PhotonVoice\Demos\DemoVoiceUI\Scripts\SidebarToggle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Photon.Voice.Unity.Demos.UiExtensions" Collapsed="true">
+    <Position X="29.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAIAAAAAAIhAAEIAAAAAAAAQEAAAAAAAAAACAEAA=</HashCode>
+      <FileName>Assets\Photon\PhotonVoice\Demos\DemoVoiceUI\Scripts\UiExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Photon.Voice.Unity.Demos.DemoVoiceUI.CodecSettingsUI" Collapsed="true">
+    <Position X="20.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gEQAAgAAAAAAAAHAAAAAAAAAAAAAAAAAyAAAAAAkBEA=</HashCode>
+      <FileName>Assets\Photon\PhotonVoice\Demos\DemoVoiceUI\Scripts\CodecSettingsUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Photon.Voice.Unity.Demos.DemoVoiceUI.DemoVoiceUI" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="31" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>/AVCsNGRQIBBgZIIsAGDJRNlNAAaZWE4gEABQIVYHuQ=</HashCode>
+      <FileName>Assets\Photon\PhotonVoice\Demos\DemoVoiceUI\Scripts\DemoVoiceUI.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Photon.Voice.Unity.Demos.DemoVoiceUI.MicrophoneDropdownFiller" Collapsed="true">
+    <Position X="27.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICAAAAAEQAAAAgAQQAAACAAAAAEAAACAAAAAgAAFA=</HashCode>
+      <FileName>Assets\Photon\PhotonVoice\Demos\DemoVoiceUI\Scripts\MicrophoneDropdownFiller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Photon.Voice.Unity.Demos.DemoVoiceUI.PhotonDemoExtensions" Collapsed="true">
+    <Position X="29.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQIAAAAAAAAAAAAACAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Photon\PhotonVoice\Demos\DemoVoiceUI\Scripts\PhotonDemoExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Photon.Voice.Unity.Demos.DemoVoiceUI.RemoteSpeakerUI" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQRBAAAQBGAAAQAAAgAAKABEAAAAQQAEAAFDAQAAEAA=</HashCode>
+      <FileName>Assets\Photon\PhotonVoice\Demos\DemoVoiceUI\Scripts\RemoteSpeakerUI.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Struct Name="Photon.Voice.Unity.Demos.DemoVoiceUI.MicRef" Collapsed="true">
+    <Position X="17" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABEAAAEAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Photon\PhotonVoice\Demos\DemoVoiceUI\Scripts\MicrophoneDropdownFiller.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="VRKeys.KeyboardLayout" Collapsed="true">
+    <Position X="17" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAQAAAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Assets\IRONHEAD Games\VRKeys\Scripts\LayoutList.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

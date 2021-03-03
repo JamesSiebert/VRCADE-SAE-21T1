@@ -61,6 +61,8 @@ public class Arrow : XRGrabInteractable
     {
         colliders[0].enabled = false; // disable grab collider
         interactionLayerMask = 1 << LayerMask.NameToLayer("Ignore"); // Bitwise operator - sets arrow to ignore layer
+        this.gameObject.layer = 14; //ignore layer (projectile)
+        
 
         Vector3 force = transform.forward * (power * speed);
         rigidBody.AddForce(force);

@@ -5,48 +5,61 @@ using UnityEngine;
 public class Target : MonoBehaviour
 {
     private float speed = 2f;
-    Renderer rend;
-    int colorPicker = 0;
-
     public bool move;
+    public TargetSpawner targetSpawner;
+    public GameManager gameManager;
+    private Renderer rend;
+    
+    public AudioClip explodeSound;
+    public AudioSource audioSource;
 
-    private void Start()
+    public GameObject explosionEffect;
+
+    void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         rend = GetComponent<Renderer>();
+        targetSpawner = GameObject.Find("Target Spawner").GetComponent<TargetSpawner>();
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
     }
+    
     
     void Update()
     {
         if (move)
         {
+            // Cube movement
             transform.Translate(Vector3.forward * Time.deltaTime * speed);
+
+            if (transform.position.x >= 15 || transform.position.x <= -15 || 
+                transform.position.y >= 15 || transform.position.y <= 0 || 
+                transform.position.z >= 15 || transform.position.z <= 5)
+            {
+                speed = speed * -1;
+            }
         }
-        
     }
 
-    //When the Primitive collides, it will reverse direction
-    private void OnTriggerEnter(Collider other)
+    public void ArrowHit()
     {
-        speed = speed * -1;
-        colorPicker = Random.Range(0, 10);
+        // Instantiate Explosion
+        Instantiate(explosionEffect, this.transform.position, Quaternion.identity);
         
-        // switch (colorPicker)
-        // {
-        //     case 0: rend.material.color = Color.white; break;
-        //     case 1: rend.material.color = Color.cyan; break;
-        //     case 2: rend.material.color = Color.blue; break;
-        //     case 3: rend.material.color = Color.black; break;
-        //     case 4: rend.material.color = Color.red; break;
-        //     case 5: rend.material.color = Color.green; break;
-        //     case 6: rend.material.color = Color.grey; break;
-        //     case 7: rend.material.color = Color.magenta; break;
-        //     case 8: rend.material.color = Color.yellow; break;
-        //     case 9: rend.material.color = Color.gray; break;
-        // }
+        targetSpawner.RemoveAndRespawn(this.gameObject); // remove this target from tracker and inform spawner to spawn new target
+        
+        audioSource.PlayOneShot(explodeSound, 1.0F); // play explosion sound
+        
+        gameManager.RecordHit(1);
+        
+        StartCoroutine(DestroyObjects());    // delayed destroy so sound fully plays
     }
     
-    private void OnTriggerExit(Collider other)
+    
+    IEnumerator DestroyObjects()
     {
+        rend.enabled = false; // target invisible
+        yield return new WaitForSeconds(1);
+        Destroy(this.gameObject);
     }
 }
 
