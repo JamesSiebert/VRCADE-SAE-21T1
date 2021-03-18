@@ -11,8 +11,8 @@ public class Arrow_Hit : MonoBehaviour
         if (other.CompareTag("Archery Target"))
         {
             Debug.Log("Archery target hit");
-            other.GetComponent<Target2>().ArrowHit();
-            Destroy(this.gameObject);
+            // other.GetComponent<TargetHit>().ArrowHit();
+            // Destroy(this.gameObject);
         }
         Debug.Log("not target hit");
     }
