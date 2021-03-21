@@ -124,15 +124,7 @@ public class BasketballManager : MonoBehaviour
             Debug.Log("Spawned Basketball in machine 1");
         }
 
-        if (timeLeft1 > 0)
-        {
-            timeLeft1 = timeLeft1 -= Time.deltaTime;
-            timeLeftText1.GetComponent<Text>().text = timeLeft1.ToString("F0");
-        }
-        else if(timeLeft1 <= 0)
-        {
-            Machine1Reset();
-        }
+        Timer1();
     }
     public void Machine2Spawn()
     {
@@ -144,16 +136,7 @@ public class BasketballManager : MonoBehaviour
             Instantiate(basketBall, Position2(), Quaternion.identity);
             Debug.Log("Spawned Basketball in machine 2");
         }
-
-        if (timeLeft2 > 0)
-        {
-            timeLeft2 = timeLeft2 -= Time.deltaTime;
-            timeLeftText1.GetComponent<Text>().text = timeLeft2.ToString("F0");
-        }
-        else if (timeLeft2 <= 0)
-        {
-            Machine2Reset();
-        }
+        Timer2();
     }
     public void Machine3Spawn()
     {
@@ -165,16 +148,7 @@ public class BasketballManager : MonoBehaviour
             Instantiate(basketBall, Position3(), Quaternion.identity);
             Debug.Log("Spawned Basketball in machine 3");
         }
-
-        if (timeLeft3 > 0)
-        {
-            timeLeft3 = timeLeft3 -= Time.deltaTime;
-            timeLeftText1.GetComponent<Text>().text = timeLeft3.ToString("F0");
-        }
-        else if (timeLeft3 <= 0)
-        {
-            Machine3Reset();
-        }
+        Timer3();
     }
     public void Machine4Spawn()
     {
@@ -186,16 +160,7 @@ public class BasketballManager : MonoBehaviour
             Instantiate(basketBall, Position4(), Quaternion.identity);
             Debug.Log("Spawned Basketball in machine 4");
         }
-
-        if (timeLeft4 > 0)
-        {
-            timeLeft4 = timeLeft4 -= Time.deltaTime;
-            timeLeftText4.GetComponent<Text>().text = timeLeft4.ToString("F0");
-        }
-        else if (timeLeft4 <= 0)
-        {
-            Machine4Reset();
-        }
+        Timer4();
     }
 
     public void Machine1Reset()
@@ -238,4 +203,48 @@ public class BasketballManager : MonoBehaviour
         timeLeftText4.GetComponent<Text>().text = "00";
     }
 
+    public void Timer1()
+    {
+        timeLeft1 = timeLeft1 -= Time.deltaTime;
+        Debug.Log(timeLeft1);
+
+        if (timeLeft1 <= 0)
+        {
+            Machine1Reset();
+        }
+    }
+
+    public void Timer2()
+    {
+        timeLeft2 = timeLeft2 -= Time.deltaTime;
+        Debug.Log(timeLeft2);
+
+        if (timeLeft2 <= 0)
+        {
+            Machine2Reset();
+        }
+    }
+
+    public void Timer3()
+    {
+        timeLeft3 = timeLeft3 -= Time.deltaTime;
+        Debug.Log(timeLeft3);
+
+        if (timeLeft3 <= 0)
+        {
+            Machine3Reset();
+        }
+    }
+
+    public void Timer4()
+    {
+        timeLeft4 = timeLeft4 -= Time.deltaTime;
+        Debug.Log(timeLeft4);
+
+        if (timeLeft4 <= 0)
+        {
+            Machine4Reset();
+        }
+    }
 }
+
