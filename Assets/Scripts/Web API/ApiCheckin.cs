@@ -1,25 +1,38 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.Networking;
- 
-public class ApiCheckin : MonoBehaviour
+using Photon.Pun;
+using UnityEngine.SceneManagement;
+
+
+public class ApiCheckin : MonoBehaviourPunCallbacks
 {
-    public string modifyCreditURL = "http://vrcade.jamessiebert.com/api/modify_credit";
-    public string playerId = "UNITY TEST"; 
-    public int modifyAmount = 100;
+    private PhotonView m_PhotonView;
+    public string checkinURL = "http://vrcade.jamessiebert.com/api/checkin";
+    public string playerId = "UNKNOWN"; 
+    public string roomId = "UNKNOWN";
+    public float checkinFrequency = 60;
+
     public string lastResponseData = "";
  
     void Awake()
     {
-        InvokeRepeating("RepeatDeduct", checkinFrequency, checkinFrequency);
+        m_PhotonView = GetComponent<PhotonView>();
+        InvokeRepeating("RepeatCheckin", checkinFrequency, checkinFrequency);
     }
 
-    private void ModifyCredit(string playerId, int modifyAmount)
+    private void Start()
     {
-        
-        this.StartCoroutine(this.CheckinRequest(modifyCreditURL, this.ResponseCallback));
+        playerId = m_PhotonView.Owner.NickName;
+        roomId = SceneManager.GetActiveScene().name;
+    }
+
+    private void RepeatCheckin()
+    {
+        this.StartCoroutine(this.CheckinRequest(checkinURL, this.ResponseCallback));
     }
     
     private IEnumerator CheckinRequest(string url, Action<string> callback = null)
@@ -43,5 +56,4 @@ public class ApiCheckin : MonoBehaviour
         Debug.Log("Checkin Response: " + data);
         lastResponseData = data;
     }
-    
 }

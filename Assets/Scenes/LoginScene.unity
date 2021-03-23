@@ -1021,6 +1021,10 @@ PrefabInstance:
       propertyPath: m_FontData.m_Alignment
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4259889451999880533, guid: 88274e52e3c606142a7ff705b4f799a0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4259889451999880534, guid: 88274e52e3c606142a7ff705b4f799a0, type: 3}
       propertyPath: m_Sprite
       value: 

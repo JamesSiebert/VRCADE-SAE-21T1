@@ -2480,6 +2480,8 @@ GameObject:
   - component: {fileID: -6726201961573128742}
   - component: {fileID: 4907539376369822759}
   - component: {fileID: 4870732441248411601}
+  - component: {fileID: 7272258128887000683}
+  - component: {fileID: 6693961928425319688}
   m_Layer: 10
   m_Name: Generic VR Player
   m_TagString: Untagged
@@ -2671,6 +2673,39 @@ MonoBehaviour:
   AutoCreateRecorderIfNotFound: 1
   UsePrimaryRecorder: 1
   SetupDebugSpeaker: 0
+--- !u!114 &7272258128887000683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3344887222022337880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b832db52f12e07c45b330c1f71b52a4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkinURL: http://vrcade.jamessiebert.com/api/checkin
+  playerId: UNKNOWN
+  roomId: UNKNOWN
+  checkinFrequency: 60
+  lastResponseData: 
+--- !u!114 &6693961928425319688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3344887222022337880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e051a71138595894f976530eef19fce3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modifyCreditURL: http://vrcade.jamessiebert.com/api/modify_credit
+  playerId: UNKNOWN
+  modifyAmount: 100
+  lastResponseData: 
 --- !u!1 &3638564633933844211
 GameObject:
   m_ObjectHideFlags: 0
