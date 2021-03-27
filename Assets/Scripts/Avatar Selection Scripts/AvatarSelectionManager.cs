@@ -37,7 +37,7 @@ public class AvatarSelectionManager : MonoBehaviour
     private void Start()
     {
         //Initially, de-activating the Avatar Selection Platform.
-        AvatarSelectionPlatformGameobject.SetActive(false);
+        AvatarSelectionPlatformGameobject.SetActive(true);
 
         // Get previously set avatar if exists
         object storedAvatarSelectionNumber;

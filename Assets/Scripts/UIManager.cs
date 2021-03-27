@@ -14,7 +14,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         UI_VRMenuGameobject.SetActive(false);
-        UI_OpenWorldsGameobject.SetActive(false);
+        UI_OpenWorldsGameobject.SetActive(true);
     }
 
     public void OnWorldsButtonClicked(){
