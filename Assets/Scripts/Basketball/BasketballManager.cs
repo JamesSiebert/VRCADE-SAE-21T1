@@ -5,10 +5,10 @@ using UnityEngine.UI;
 public class BasketballManager : MonoBehaviour
 {
     //Basketballs
-    public GameObject basketBall;
-        
-    
-
+    public GameObject Machine1BasketBall;
+    public GameObject Machine2BasketBall;
+    public GameObject Machine3BasketBall;
+    public GameObject Machine4BasketBall;
     public int numberOfBalls = 0;
     
     //Time Stuff
@@ -22,18 +22,21 @@ public class BasketballManager : MonoBehaviour
     public static float timeLeft3 = 60;
     public static float timeLeft4 = 60;
 
-    //Int
-    public int waitTime = 3;
     //Start Buttons
     public GameObject StartButton1;
     public GameObject StartButton2;
     public GameObject StartButton3;
     public GameObject StartButton4;
 
+   //Booleans
     public bool Machine1 { get; }
     public bool Machine2 { get; }
     public bool Machine3 { get; }
     public bool Machine4 { get; }
+    public bool timer1IsRunning = false;
+    public bool timer2IsRunning = false;
+    public bool timer3IsRunning = false;
+    public bool timer4IsRunning = false;
 
     //Reset Buttons
 
@@ -53,6 +56,68 @@ public class BasketballManager : MonoBehaviour
         timeLeftText2.GetComponent<Text>().text = timeLeft1.ToString("F0");
         timeLeftText3.GetComponent<Text>().text = timeLeft1.ToString("F0");
         timeLeftText4.GetComponent<Text>().text = timeLeft1.ToString("F0");
+
+        if (timer1IsRunning)
+        {
+            if (timeLeft1 > 0)
+            {
+                timeLeft1 -= Time.deltaTime;
+                Debug.Log(timeLeft1);
+            }
+            else
+            {
+                Debug.Log("Timer has run out!");
+                timeLeft1 = 0;
+                timer1IsRunning = false;
+            }
+        }
+
+        if (timer2IsRunning)
+        {
+            if (timeLeft2 > 0)
+            {
+                timeLeft2 -= Time.deltaTime;
+                Debug.Log(timeLeft2);
+            }
+            else
+            {
+                Debug.Log("Timer has run out!");
+                timeLeft2 = 0;
+                timer2IsRunning = false;
+            }
+        }
+
+        if (timer3IsRunning)
+        {
+            if (timeLeft3 > 0)
+            {
+                timeLeft3 -= Time.deltaTime;
+                Debug.Log(timeLeft3);
+            }
+            else
+            {
+                Debug.Log("Timer has run out!");
+                timeLeft3 = 0;
+                timer3IsRunning = false;
+            }
+        }
+
+        if (timer4IsRunning)
+        {
+            if (timeLeft4 > 0)
+            {
+                timeLeft4 -= Time.deltaTime;
+                Debug.Log(timeLeft4);
+            }
+            else
+            {
+                Debug.Log("Timer has run out!");
+                timeLeft4 = 0;
+                timer4IsRunning = false;
+            }
+        }
+
+
     }
     private Vector3 Position1()
     {
@@ -117,133 +182,113 @@ public class BasketballManager : MonoBehaviour
     {
         Debug.Log("Start Button Clicked, spawning basketballs");
         StartButton1.SetActive(false);
+        timer1IsRunning = true;
 
         for (int i = 0; i < numberOfBalls; i++)
         {
-            Instantiate(basketBall, Position1(), Quaternion.identity);
+            Instantiate(Machine1BasketBall, Position1(), Quaternion.identity);
             Debug.Log("Spawned Basketball in machine 1");
         }
-
-        Timer1();
     }
     public void Machine2Spawn()
     {
         Debug.Log("Start Button Clicked, spawning basketballs");
         StartButton2.SetActive(false);
-
+        timer2IsRunning = true;
+        
         for (int i = 0; i < numberOfBalls; i++)
         {
-            Instantiate(basketBall, Position2(), Quaternion.identity);
+            Instantiate(Machine2BasketBall, Position2(), Quaternion.identity);
             Debug.Log("Spawned Basketball in machine 2");
         }
-        Timer2();
     }
     public void Machine3Spawn()
     {
         Debug.Log("Start Button Clicked, spawning basketballs");
         StartButton3.SetActive(false);
+        timer3IsRunning = true;
 
         for (int i = 0; i < numberOfBalls; i++)
         {
-            Instantiate(basketBall, Position3(), Quaternion.identity);
+            Instantiate(Machine3BasketBall, Position3(), Quaternion.identity);
             Debug.Log("Spawned Basketball in machine 3");
         }
-        Timer3();
     }
     public void Machine4Spawn()
     {
         Debug.Log("Start Button Clicked, spawning basketballs");
         StartButton4.SetActive(false);
+        timer4IsRunning = true;
 
         for (int i = 0; i < numberOfBalls; i++)
         {
-            Instantiate(basketBall, Position4(), Quaternion.identity);
+            Instantiate(Machine4BasketBall, Position4(), Quaternion.identity);
             Debug.Log("Spawned Basketball in machine 4");
         }
-        Timer4();
     }
 
     public void Machine1Reset()
     {
         Debug.Log("Restart button clicked, despawn basketballs");
-        Destroy(basketBall.gameObject);
         StartButton1.SetActive(true);
         BasketballCollider.bballScore1 = 0;
+        timer1IsRunning = false;
         timeLeft1 = 60;
         timeLeftText1.GetComponent<Text>().text = "00";
+
+        GameObject[] objects = GameObject.FindGameObjectsWithTag("Machine1Ball");
+        foreach (GameObject go in objects)
+        {
+            Destroy(go);
+        }
+
     }
 
     public void Machine2Reset()
     {
         Debug.Log("Restart button clicked, despawn basketballs");
-        Destroy(basketBall.gameObject);
         StartButton2.SetActive(true);
         BasketballCollider.bballScore2 = 0;
+        timer2IsRunning = false;
         timeLeft2 = 60;
         timeLeftText2.GetComponent<Text>().text = "00";
+
+        GameObject[] objects = GameObject.FindGameObjectsWithTag("Machine2Ball");
+        foreach (GameObject go in objects)
+        {
+            Destroy(go);
+        }
     }
 
     public void Machine3Reset()
     {
         Debug.Log("Restart button clicked, despawn basketballs");
-        Destroy(basketBall.gameObject);
         StartButton3.SetActive(true);
         BasketballCollider.bballScore3 = 0;
+        timer3IsRunning = false;
         timeLeft3 = 60;
         timeLeftText3.GetComponent<Text>().text = "00";
+
+        GameObject[] objects = GameObject.FindGameObjectsWithTag("Machine3Ball");
+        foreach (GameObject go in objects)
+        {
+            Destroy(go);
+        }
     }
 
     public void Machine4Reset()
     {
         Debug.Log("Restart button clicked, despawn basketballs");
-        Destroy(basketBall.gameObject);
         StartButton4.SetActive(true);
         BasketballCollider.bballScore4 = 0;
+        timer4IsRunning = false;
         timeLeft4 = 60;
         timeLeftText4.GetComponent<Text>().text = "00";
-    }
 
-    public void Timer1()
-    {
-        timeLeft1 = timeLeft1 -= Time.deltaTime;
-        Debug.Log(timeLeft1);
-
-        if (timeLeft1 <= 0)
+        GameObject[] objects = GameObject.FindGameObjectsWithTag("Machine4Ball");
+        foreach (GameObject go in objects)
         {
-            Machine1Reset();
-        }
-    }
-
-    public void Timer2()
-    {
-        timeLeft2 = timeLeft2 -= Time.deltaTime;
-        Debug.Log(timeLeft2);
-
-        if (timeLeft2 <= 0)
-        {
-            Machine2Reset();
-        }
-    }
-
-    public void Timer3()
-    {
-        timeLeft3 = timeLeft3 -= Time.deltaTime;
-        Debug.Log(timeLeft3);
-
-        if (timeLeft3 <= 0)
-        {
-            Machine3Reset();
-        }
-    }
-
-    public void Timer4()
-    {
-        timeLeft4 = timeLeft4 -= Time.deltaTime;
-        Debug.Log(timeLeft4);
-
-        if (timeLeft4 <= 0)
-        {
-            Machine4Reset();
+            Destroy(go);
         }
     }
 }
