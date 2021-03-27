@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Projectile
   - Puck
+  - Machine1Ball
+  - Machine2Ball
+  - Machine3Ball
+  - Machine4Ball
   layers:
   - Default
   - TransparentFX
