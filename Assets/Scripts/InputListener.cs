@@ -37,6 +37,10 @@ public class InputListener : MonoBehaviour
                 Debug.Log("Primary button press");
             }
             
+            if(inputDevice.TryGetFeatureValue(CommonUsages.secondaryButton, out inputValue) && inputValue){
+                Debug.Log("Secondary button press");
+            }
+            
         }
     }
 }

@@ -1,10 +1,10 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.Events;
 
-public class InputListenerSecondaryButton : MonoBehaviour
+public class InputListenerPrimaryButton : MonoBehaviour
 {
     List<InputDevice> devices;
     public XRNode controllerNode;
@@ -51,7 +51,7 @@ public class InputListenerSecondaryButton : MonoBehaviour
                     if (!isPressed)
                     {
                         isPressed = true;
-                        Debug.Log("OnPress event is called");
+                        Debug.Log("Primary OnPress event is called");
 
                         OnPress.Invoke();
                     }
@@ -61,7 +61,7 @@ public class InputListenerSecondaryButton : MonoBehaviour
                 {
                     isPressed = false;
                     OnRelease.Invoke();
-                    Debug.Log("OnRelease event is called");
+                    Debug.Log("Primary OnRelease event is called");
 
                 }
             }

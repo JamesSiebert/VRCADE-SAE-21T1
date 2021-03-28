@@ -1707,7 +1707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38f6bf3d943ac7945842268c9ef1dca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 3667520069373545713}
   m_Colliders: []
   m_InteractionLayerMask:
     serializedVersion: 2
@@ -1766,7 +1766,7 @@ MonoBehaviour:
       m_Calls: []
   m_TeleportationProvider: {fileID: 0}
   m_MatchOrientation: 0
-  m_TeleportTrigger: 0
+  m_TeleportTrigger: 2
 --- !u!33 &5122440845149403358
 MeshFilter:
   m_ObjectHideFlags: 0
