@@ -9760,6 +9760,7 @@ GameObject:
   - component: {fileID: 8184464872515794868}
   - component: {fileID: 8184464872515794871}
   - component: {fileID: -6444045279784431676}
+  - component: {fileID: 3180454272412508798}
   m_Layer: 0
   m_Name: Air Hockey Fireworks
   m_TagString: Untagged
@@ -14738,6 +14739,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3180454272412508798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8184464872515794870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 877a26a72c3b5564e9f4f3255505fe10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroySeconds: 5
 --- !u!1 &8184464872640535740
 GameObject:
   m_ObjectHideFlags: 0

@@ -29283,6 +29283,7 @@ GameObject:
   - component: {fileID: 5566840448500398199}
   - component: {fileID: 5566840448500398200}
   - component: {fileID: 3749882863406438343}
+  - component: {fileID: 7297548337784930669}
   m_Layer: 0
   m_Name: Puck Destroy - CosmicReversal
   m_TagString: Untagged
@@ -34256,6 +34257,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7297548337784930669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5566840448500398201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 877a26a72c3b5564e9f4f3255505fe10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroySeconds: 10
 --- !u!1 &5566840448638633985
 GameObject:
   m_ObjectHideFlags: 0
