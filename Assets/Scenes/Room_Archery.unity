@@ -137,7 +137,7 @@ PrefabInstance:
     - target: {fileID: 2179614927706237428, guid: 6643fbc85ecf3864d9169980fd53311c, type: 3}
       propertyPath: m_InteractionManager
       value: 
-      objectReference: {fileID: 718808417}
+      objectReference: {fileID: 3667520069373545713}
     - target: {fileID: 2179614927706237429, guid: 6643fbc85ecf3864d9169980fd53311c, type: 3}
       propertyPath: m_RootOrder
       value: 7
