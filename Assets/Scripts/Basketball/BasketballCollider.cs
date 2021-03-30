@@ -34,27 +34,27 @@ public class BasketballCollider : MonoBehaviour
     }
 
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (Machine1 == true)
         {
             Debug.Log("Machine1 score Point");
-            bballScore1 = bballScore1 + 1;
+            bballScore1++;
         }
         else if (Machine2 == true)
         {
             Debug.Log("Machine2 score Point");
-            bballScore2 = bballScore2 + 1;
+            bballScore2++;
         }
         else if (Machine3 == true)
         {
             Debug.Log("Machine3 score Point");
-            bballScore3 = bballScore3 + 1;
+            bballScore3++;
         }
         else if (Machine4 == true)
         {
             Debug.Log("Machine4 score Point");
-            bballScore4 = bballScore4 + 1;
+            bballScore4++;
         }
 
     }
