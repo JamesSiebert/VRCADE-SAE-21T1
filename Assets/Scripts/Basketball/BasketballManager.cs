@@ -28,7 +28,13 @@ public class BasketballManager : MonoBehaviour
     public GameObject StartButton3;
     public GameObject StartButton4;
 
-   //Booleans
+    //
+    public GameObject spawnLocation1;
+    public GameObject spawnLocation2;
+    public GameObject spawnLocation3;
+    public GameObject spawnLocation4;
+
+    //Booleans
     public bool Machine1 { get; }
     public bool Machine2 { get; }
     public bool Machine3 { get; }
@@ -186,7 +192,7 @@ public class BasketballManager : MonoBehaviour
 
         for (int i = 0; i < numberOfBalls; i++)
         {
-            Instantiate(Machine1BasketBall, Position1(), Quaternion.identity);
+            Instantiate(Machine1BasketBall, spawnLocation1.transform.position, Quaternion.identity);
             Debug.Log("Spawned Basketball in machine 1");
         }
     }
@@ -198,7 +204,7 @@ public class BasketballManager : MonoBehaviour
         
         for (int i = 0; i < numberOfBalls; i++)
         {
-            Instantiate(Machine2BasketBall, Position2(), Quaternion.identity);
+            Instantiate(Machine2BasketBall, spawnLocation2.transform.position, Quaternion.identity);
             Debug.Log("Spawned Basketball in machine 2");
         }
     }
@@ -210,7 +216,7 @@ public class BasketballManager : MonoBehaviour
 
         for (int i = 0; i < numberOfBalls; i++)
         {
-            Instantiate(Machine3BasketBall, Position3(), Quaternion.identity);
+            Instantiate(Machine3BasketBall, spawnLocation3.transform.position, Quaternion.identity);
             Debug.Log("Spawned Basketball in machine 3");
         }
     }
@@ -222,7 +228,7 @@ public class BasketballManager : MonoBehaviour
 
         for (int i = 0; i < numberOfBalls; i++)
         {
-            Instantiate(Machine4BasketBall, Position4(), Quaternion.identity);
+            Instantiate(Machine4BasketBall, spawnLocation4.transform.position, Quaternion.identity);
             Debug.Log("Spawned Basketball in machine 4");
         }
     }
