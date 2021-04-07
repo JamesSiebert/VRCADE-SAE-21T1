@@ -1,21 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class ScoreResponse : MonoBehaviour
+public class ScoreResponse
 {
     // Expected response variables
-    public string airHockeyTop;
-    public string basketballTop;
-    public string archeryTop;
-
-    public string airHockeyPlayerBest;
-    public string basketballPlayerBest;
-    public string archeryPlayerBest;
+    public int airHockeyTop;
+    public int basketballTop;
+    public int archeryTop;
+    public int airHockeyPlayerBest;
+    public int basketballPlayerBest;
+    public int archeryPlayerBest;
     
     public static ScoreResponse CreateFromJSON(string jsonString)
     {
         return JsonUtility.FromJson<ScoreResponse>(jsonString);
     }
 }
+
+//{"airHockeyTop":0,
+//"basketballTop":0,
+//"archeryTop":100,
+//"airHockeyPlayerBest":0,
+//"basketballPlayerBest":0,
+//"archeryPlayerBest":0}

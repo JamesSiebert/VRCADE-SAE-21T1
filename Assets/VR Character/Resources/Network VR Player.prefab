@@ -2345,11 +2345,28 @@ MonoBehaviour:
   checkinURL: http://vrcade.jamessiebert.com/api/checkin
   modifyCreditURL: http://vrcade.jamessiebert.com/api/modify_credit
   getCreditBalanceURL: http://vrcade.jamessiebert.com/api/check_credit
+  getHighScoreURL: http://vrcade.jamessiebert.com/api/get_scores
+  postHighScoreURL: http://vrcade.jamessiebert.com/api/post_score
   playerId: UNKNOWN
   roomId: UNKNOWN
   checkinFrequency: 60
   lastResponseData: 
+  lastScoreResponseData: 
   creditBalance: 0
+  airHockeyTop: 0
+  basketballTop: 0
+  archeryTop: 0
+  airHockeyPlayerBest: 0
+  basketballPlayerBest: 0
+  archeryPlayerBest: 0
+  playEnabled: 1
+  minPlayCredit: -500
+  OnPlayEnabled:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPlayDisabled:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5960572330134172088
 GameObject:
   m_ObjectHideFlags: 0

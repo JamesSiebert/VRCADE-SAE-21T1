@@ -5,6 +5,7 @@ using Photon.Pun;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class ApiCommunication : MonoBehaviourPunCallbacks
 {
@@ -15,7 +16,7 @@ public class ApiCommunication : MonoBehaviourPunCallbacks
     public string modifyCreditURL = "http://vrcade.jamessiebert.com/api/modify_credit";
     public string getCreditBalanceURL = "http://vrcade.jamessiebert.com/api/check_credit";
     public string getHighScoreURL = "http://vrcade.jamessiebert.com/api/get_scores";
-    public string postHighScoreURL = "http://vrcade.jamessiebert.com/api/post_high_score";
+    public string postHighScoreURL = "http://vrcade.jamessiebert.com/api/post_score";
     
     public string playerId = "UNKNOWN";
     public string roomId = "UNKNOWN";
@@ -25,14 +26,27 @@ public class ApiCommunication : MonoBehaviourPunCallbacks
     public string lastScoreResponseData = "";
     public int creditBalance = 0;
 
-    public string airHockeyTop = "EMPTY";
-    public string basketballTop = "EMPTY";
-    public string archeryTop = "EMPTY";
     
-    public string airHockeyPlayerBest = "EMPTY";
-    public string basketballPlayerBest = "EMPTY";
-    public string archeryPlayerBest = "EMPTY";
+    //{"airHockeyTop":0,
+    //"basketballTop":0,
+    //"archeryTop":100,
+    //"airHockeyPlayerBest":0,
+    //"basketballPlayerBest":0,
+    //"archeryPlayerBest":0}
+    public int airHockeyTop = 0;
+    public int basketballTop = 0;
+    public int archeryTop = 0;
     
+    public int airHockeyPlayerBest = 0;
+    public int basketballPlayerBest = 0;
+    public int archeryPlayerBest = 0;
+
+    public bool playEnabled = true;
+    public int minPlayCredit = -500; // $5
+    
+    public UnityEvent OnPlayEnabled;
+    public UnityEvent OnPlayDisabled;
+
 
     private void Start()
     {
@@ -43,7 +57,13 @@ public class ApiCommunication : MonoBehaviourPunCallbacks
         
         playerId = vrPlayerPhotonView.Owner.NickName;
         roomId = SceneManager.GetActiveScene().name;
+        
         GetCreditBalance();
+        if (roomId == "Room_AirHockey" || roomId == "Room_Basketball" || roomId == "Room_Archery")
+        {
+            GetHighScores();
+        }
+        
     }
 
     private void RepeatCheckin()
@@ -75,9 +95,29 @@ public class ApiCommunication : MonoBehaviourPunCallbacks
 
         CreditResponse jsonResponseObject = CreditResponse.CreateFromJSON(data);
         creditBalance = jsonResponseObject.balance;
+        
+        if (creditBalance < minPlayCredit)
+        {
+            // Credit below min
+            if (playEnabled)
+            {
+                // State changed from Play Enabled to disabled - Call event
+                playEnabled = false;
+                OnPlayDisabled.Invoke();
+            }
+        }
+        else
+        {
+            // Credit above min
+            if (!playEnabled)
+            {
+                // State changed from Play Disabled to Enabled - Call event
+                playEnabled = true;
+                OnPlayEnabled.Invoke();
+            }
+        }
     }
-
-
+    
 
     // Call this to add / deduct credit via API
     public void ModifyCredit(int modifyAmount)
