@@ -34,7 +34,7 @@ public class BasketballCollider : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if (Machine1 == true)
         {
