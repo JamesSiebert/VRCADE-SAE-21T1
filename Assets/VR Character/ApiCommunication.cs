@@ -21,6 +21,14 @@ public class ApiCommunication : MonoBehaviourPunCallbacks
 
     public string lastResponseData = "";
     public int creditBalance = 0;
+
+    public string airHockeyTop = "EMPTY";
+    public string basketballTop = "EMPTY";
+    public string archeryTop = "EMPTY";
+    
+    public string airHockeyPlayerBest = "EMPTY";
+    public string basketballPlayerBest = "EMPTY";
+    public string archeryPlayerBest = "EMPTY";
     
 
     private void Start()
