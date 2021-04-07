@@ -14,12 +14,15 @@ public class ApiCommunication : MonoBehaviourPunCallbacks
     public string checkinURL = "http://vrcade.jamessiebert.com/api/checkin";
     public string modifyCreditURL = "http://vrcade.jamessiebert.com/api/modify_credit";
     public string getCreditBalanceURL = "http://vrcade.jamessiebert.com/api/check_credit";
+    public string getHighScoreURL = "http://vrcade.jamessiebert.com/api/get_scores";
+    public string postHighScoreURL = "http://vrcade.jamessiebert.com/api/post_high_score";
     
     public string playerId = "UNKNOWN";
     public string roomId = "UNKNOWN";
     public float checkinFrequency = 60;
 
     public string lastResponseData = "";
+    public string lastScoreResponseData = "";
     public int creditBalance = 0;
 
     public string airHockeyTop = "EMPTY";
@@ -138,5 +141,71 @@ public class ApiCommunication : MonoBehaviourPunCallbacks
 
         CreditResponse jsonResponseObject = CreditResponse.CreateFromJSON(data);
         creditBalance = jsonResponseObject.balance;
+    }
+    
+    
+    // Call this to get current high scores from web server
+    public void GetHighScores()
+    {
+        this.StartCoroutine(this.GetHighScoresRequest(this.GetHighScoresResponseCallback));
+    }
+    
+    // Call this to post a new score to web server
+    public void PostHighScore(int score)
+    {
+        this.StartCoroutine(this.PostHighScoreRequest(this.GetHighScoresResponseCallback));
+    }
+    
+    // Request a score update
+    private IEnumerator GetHighScoresRequest(Action<string> callback = null)
+    {
+        List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
+        formData.Add(new MultipartFormDataSection("data", "{\"player_id\": \"" + playerId + "\"}"));
+
+        UnityWebRequest request = UnityWebRequest.Post(getHighScoreURL, formData);
+
+        // Wait for the response and then get our data
+        yield return request.SendWebRequest();
+        var data = request.downloadHandler.text;
+
+        if (callback != null)
+            callback(data);
+    }
+    
+    // For posting a score to the Server
+    private IEnumerator PostHighScoreRequest(Action<string> callback = null)
+    {
+        int score = 5; //TEMP
+        string roomId = "test"; //TEMP
+        
+        List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
+        formData.Add(new MultipartFormDataSection("data", "{\"player_id\": \"" + playerId + "\" , \"room_id\": \"" + roomId + "\"  , \"score\": \"" + score + "\" }"));
+
+        UnityWebRequest request = UnityWebRequest.Post(postHighScoreURL, formData);
+
+        // Wait for the response and then get our data
+        yield return request.SendWebRequest();
+        var data = request.downloadHandler.text;
+
+        if (callback != null)
+            callback(data);
+    }
+    
+    // Callback to act on our response data
+    private void GetHighScoresResponseCallback(string data)
+    {
+        Debug.Log("Get High Scores Response: " + data);
+        lastScoreResponseData = data;
+
+        // unpack json response
+        ScoreResponse jsonResponseObject = ScoreResponse.CreateFromJSON(data);
+
+        // Update variables
+        airHockeyTop = jsonResponseObject.airHockeyTop;
+        basketballTop = jsonResponseObject.basketballTop;
+        archeryTop = jsonResponseObject.archeryTop;
+        airHockeyPlayerBest = jsonResponseObject.airHockeyPlayerBest;
+        basketballPlayerBest = jsonResponseObject.basketballPlayerBest;
+        archeryPlayerBest = jsonResponseObject.archeryPlayerBest;
     }
 }
