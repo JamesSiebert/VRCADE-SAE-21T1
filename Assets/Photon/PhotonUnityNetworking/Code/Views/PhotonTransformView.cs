@@ -81,6 +81,7 @@ namespace Photon.Pun
             // Write
             if (stream.IsWriting)
             {
+                //Debug.Log("writing");
                 if (this.m_SynchronizePosition)
                 {
                     if (m_UseLocal)
@@ -119,6 +120,7 @@ namespace Photon.Pun
             // Read
             else
             {
+                //Debug.Log("reading");
                 if (this.m_SynchronizePosition)
                 {
                     this.m_NetworkPosition = (Vector3)stream.ReceiveNext();
