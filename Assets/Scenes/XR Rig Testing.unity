@@ -2661,17 +2661,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8898dd01931de72458b1802c7053325f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LocalXRRigGameobject: {fileID: 3255821641619508257}
-  MainAvatarGameobject: {fileID: 6514571891391918957}
-  AvatarHeadGameobject: {fileID: 6975466720709155368}
-  AvatarBodyGameobject: {fileID: 5868544234471909224}
-  AvatarModelPrefabs:
-  - {fileID: 6698639957168452362, guid: 69edaa7f6d0367845b76420b47e4be35, type: 3}
-  - {fileID: 1974154923505330770, guid: 0c74eca2d21234b42b00d95293f1ee7e, type: 3}
-  - {fileID: 1728414061110574811, guid: e8090dbb771374144a023faf37db10eb, type: 3}
-  - {fileID: 5701194048334369547, guid: 47133d67b3a40f04eb97e5089982ea39, type: 3}
-  - {fileID: 3653637840890810929, guid: 089d38c2beff1f044b446797593d7269, type: 3}
-  PlayerName_Text: {fileID: 4926706813630693256}
+  xrRig: {fileID: 0}
+  mainAvatar: {fileID: 0}
+  avatarHead: {fileID: 0}
+  avatarBody: {fileID: 0}
+  avatarModelPrefabs: []
+  playerNameText: {fileID: 0}
+  xrTeleportControlSwitcher: {fileID: 0}
 --- !u!223 &2722431732961489241
 Canvas:
   m_ObjectHideFlags: 0
@@ -3397,12 +3393,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43064dee7c60ce14288923c80b53d652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generalVRPlayerTransform: {fileID: 5003084336758201645}
+  vrPlayerTransform: {fileID: 0}
   mainAvatarTransform: {fileID: 7520096509255311580}
   headTransform: {fileID: 4200146049792282257}
   bodyTransform: {fileID: 1775518911601892598}
   leftHandTransform: {fileID: 8018974262576156114}
   rightHandTransform: {fileID: 7226580910147927615}
+  m_Distance_VRPlayer: 0
+  m_Direction_VRPlayer: {x: 0, y: 0, z: 0}
+  m_NetworkPosition_VRPlayer: {x: 0, y: 0, z: 0}
+  m_StoredPosition_VRPlayer: {x: 0, y: 0, z: 0}
+  m_NetworkRotation_VRPlayer: {x: 0, y: 0, z: 0, w: 0}
+  m_Angle_VRPlayer: 0
+  m_Distance_MainAvatar: 0
+  m_Direction_MainAvatar: {x: 0, y: 0, z: 0}
+  m_NetworkPosition_MainAvatar: {x: 0, y: 0, z: 0}
+  m_StoredPosition_MainAvatar: {x: 0, y: 0, z: 0}
+  m_NetworkRotation_MainAvatar: {x: 0, y: 0, z: 0, w: 0}
+  m_Angle_MainAvatar: 0
+  m_NetworkRotation_Head: {x: 0, y: 0, z: 0, w: 0}
+  m_Angle_Head: 0
+  m_NetworkRotation_Body: {x: 0, y: 0, z: 0, w: 0}
+  m_Angle_Body: 0
+  m_Distance_LeftHand: 0
+  m_Direction_LeftHand: {x: 0, y: 0, z: 0}
+  m_NetworkPosition_LeftHand: {x: 0, y: 0, z: 0}
+  m_StoredPosition_LeftHand: {x: 0, y: 0, z: 0}
+  m_NetworkRotation_LeftHand: {x: 0, y: 0, z: 0, w: 0}
+  m_Angle_LeftHand: 0
+  m_Distance_RightHand: 0
+  m_Direction_RightHand: {x: 0, y: 0, z: 0}
+  m_NetworkPosition_RightHand: {x: 0, y: 0, z: 0}
+  m_StoredPosition_RightHand: {x: 0, y: 0, z: 0}
+  m_NetworkRotation_RightHand: {x: 0, y: 0, z: 0, w: 0}
+  m_Angle_RightHand: 0
 --- !u!114 &4921974057968705348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4123,6 +4147,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1196992430374644618, guid: 4a5198c01528dee4f8d06b5878365fcf, type: 3}
+      propertyPath: viewIdField
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561525138947218935, guid: 4a5198c01528dee4f8d06b5878365fcf, type: 3}
+      propertyPath: viewIdField
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2909324705343143743, guid: 4a5198c01528dee4f8d06b5878365fcf, type: 3}
+      propertyPath: viewIdField
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3495571301309000181, guid: 4a5198c01528dee4f8d06b5878365fcf, type: 3}
+      propertyPath: viewIdField
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4062912708817595840, guid: 4a5198c01528dee4f8d06b5878365fcf, type: 3}
+      propertyPath: viewIdField
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5052540366420111527, guid: 4a5198c01528dee4f8d06b5878365fcf, type: 3}
+      propertyPath: viewIdField
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5609181185755125579, guid: 4a5198c01528dee4f8d06b5878365fcf, type: 3}
+      propertyPath: viewIdField
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5960572329417466939, guid: 4a5198c01528dee4f8d06b5878365fcf, type: 3}
       propertyPath: m_InteractionManager
       value: 
@@ -4271,6 +4323,10 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1627608662}
+    - target: {fileID: 9171864305137418434, guid: 4a5198c01528dee4f8d06b5878365fcf, type: 3}
+      propertyPath: viewIdField
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a5198c01528dee4f8d06b5878365fcf, type: 3}
 --- !u!20 &5978375594726503890
@@ -4931,6 +4987,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enableApiCommunication: 1
+  vrPlayerPhotonView: {fileID: 0}
   checkinURL: http://vrcade.jamessiebert.com/api/checkin
   modifyCreditURL: http://vrcade.jamessiebert.com/api/modify_credit
   getCreditBalanceURL: http://vrcade.jamessiebert.com/api/check_credit
@@ -5347,11 +5404,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  controllers: []
-  head: {fileID: 6975466720709155368}
   teleportationProvider: {fileID: 6813258133046652651}
   MainVRPlayer: {fileID: 3007667046950290893}
   XRRigGameobject: {fileID: 3255821641619508257}
+  xrRig: {fileID: 0}
+  vrPlayer: {fileID: 0}
+  moveSpeed: 3
+  XR_Camera: {fileID: 0}
+  controllers: []
+  mainAvatar: {fileID: 0}
+  avatarHead: {fileID: 0}
+  avatarBody: {fileID: 0}
+  avatarLeftHand: {fileID: 0}
+  avatarRightHand: {fileID: 0}
+  headPositionOffset: {x: 0, y: -0.9, z: 0}
+  handRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &8018974262576156114
 Transform:
   m_ObjectHideFlags: 0
@@ -6132,9 +6199,9 @@ MonoBehaviour:
   AvatarBody: {fileID: 1775518911601892598}
   AvatarHand_Left: {fileID: 8018974262576156114}
   AvatarHand_Right: {fileID: 7226580910147927615}
-  XRHead: {fileID: 4670892707467494768}
-  XRHand_Left: {fileID: 2126372882527667226}
-  XRHand_Right: {fileID: 5057161186688468310}
+  XR_Camera: {fileID: 0}
+  XR_LeftBaseController: {fileID: 0}
+  XR_RightBaseController: {fileID: 0}
   headPositionOffset: {x: 0, y: -0.9, z: 0}
   handRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!224 &9121326354108341740
