@@ -168,7 +168,7 @@ public class XR_TeleportControlSwitcher : MonoBehaviour
         {
             if (positionVector.magnitude > 0.15f)
             {
-                Debug.Log(positionVector);
+                //Debug.Log(positionVector);
                 Move(positionVector);
             }
         }
