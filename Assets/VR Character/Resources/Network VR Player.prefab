@@ -2159,7 +2159,7 @@ MonoBehaviour:
   avatarLeftHand: {fileID: 5960572330296864341}
   avatarRightHand: {fileID: 5960572330134172089}
   headPositionOffset: {x: 0, y: -0.9, z: 0}
-  handRotationOffset: {x: 0, y: 0, z: 0}
+  avatarHandsParent: {fileID: 9156088155500132826}
 --- !u!114 &5960572330088677430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2235,21 +2235,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  trackLeftGripButton: 0
+  trackLeftGripButton: 1
   OnLeftGripPress:
     m_PersistentCalls:
       m_Calls: []
   OnLeftGripRelease:
     m_PersistentCalls:
       m_Calls: []
-  trackLeftTriggerButton: 0
+  trackLeftTriggerButton: 1
   OnLeftTriggerPress:
     m_PersistentCalls:
       m_Calls: []
   OnLeftTriggerRelease:
     m_PersistentCalls:
       m_Calls: []
-  trackLeftMenuButton: 0
+  trackLeftMenuButton: 1
   OnLeftMenuPress:
     m_PersistentCalls:
       m_Calls: []
@@ -2287,21 +2287,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  trackRightSecondaryButton: 0
+  trackRightSecondaryButton: 1
   OnRightSecondaryPress:
     m_PersistentCalls:
       m_Calls: []
   OnRightSecondaryRelease:
     m_PersistentCalls:
       m_Calls: []
-  trackRightGripButton: 0
+  trackRightGripButton: 1
   OnRightGripPress:
     m_PersistentCalls:
       m_Calls: []
   OnRightGripRelease:
     m_PersistentCalls:
       m_Calls: []
-  trackRightTriggerButton: 0
+  trackRightTriggerButton: 1
   OnRightTriggerPress:
     m_PersistentCalls:
       m_Calls: []
@@ -2335,7 +2335,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5960572330088677437}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b832db52f12e07c45b330c1f71b52a4b, type: 3}
   m_Name: 

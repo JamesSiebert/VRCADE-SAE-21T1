@@ -47,8 +47,9 @@ public class XR_TeleportControlSwitcher : MonoBehaviour
     public Transform avatarRightHand;
 
     public Vector3 headPositionOffset = new Vector3(0,-0.9f,0);
-    public Vector3 handRotationOffset = new Vector3(0, 0, 0);
     
+    // rotate y degrees around y axis
+    public GameObject avatarHandsParent;
 
     private int teleportationLayer;
 
@@ -67,12 +68,19 @@ public class XR_TeleportControlSwitcher : MonoBehaviour
     private void Update()
     {
 
-        // override position of the vr controllers because tracking is lost when in multiplayer
-        leftDirectController.transform.position = XRInputEventTriggerRef.leftControllerPosition + xrRig.transform.position;
-        leftRayController.transform.position = XRInputEventTriggerRef.leftControllerPosition + xrRig.transform.position;
+        // OVERRIDE POSITION OF VR CONTROLLERS because tracking is lost when in multiplayer
+        leftDirectController.transform.localPosition = XRInputEventTriggerRef.leftControllerPosition;
+        leftRayController.transform.localPosition = XRInputEventTriggerRef.leftControllerPosition;
+        rightDirectController.transform.localPosition = XRInputEventTriggerRef.rightControllerPosition;
+        rightRayController.transform.localPosition = XRInputEventTriggerRef.rightControllerPosition;
+        
+        // OVERRIDE CONTROLLER ROTATION - fix network issues
+        leftDirectController.transform.localRotation = XRInputEventTriggerRef.leftControllerRotation;
+        leftRayController.transform.localRotation = XRInputEventTriggerRef.leftControllerRotation;
+        rightDirectController.transform.localRotation = XRInputEventTriggerRef.rightControllerRotation;
+        rightRayController.transform.localRotation = XRInputEventTriggerRef.rightControllerRotation;
 
-        rightDirectController.transform.position = XRInputEventTriggerRef.rightControllerPosition + xrRig.transform.position;
-        rightRayController.transform.position = XRInputEventTriggerRef.rightControllerPosition + xrRig.transform.position;
+        
         
         
         
@@ -197,26 +205,26 @@ public class XR_TeleportControlSwitcher : MonoBehaviour
         if (leftTeleportActive)
         {
             //  *** Ray Controller
-            avatarLeftHand.position = Vector3.Lerp(avatarLeftHand.position,xrRig.transform.position + XRInputEventTriggerRef.leftControllerPosition,0.5f);
-            avatarLeftHand.rotation = Quaternion.Lerp(avatarLeftHand.rotation,XRInputEventTriggerRef.leftControllerRotation,0.5f)*Quaternion.Euler(handRotationOffset);
+            avatarLeftHand.localPosition = Vector3.Lerp(avatarLeftHand.localPosition,XRInputEventTriggerRef.leftControllerPosition,0.5f);
+            avatarLeftHand.localRotation = Quaternion.Lerp(avatarLeftHand.localRotation,XRInputEventTriggerRef.leftControllerRotation,0.5f);
         }
         else
         {
             // *** Direct Interactor 
-            avatarLeftHand.position = Vector3.Lerp(avatarLeftHand.position,xrRig.transform.position + XRInputEventTriggerRef.leftControllerPosition,0.5f);
-            avatarLeftHand.rotation = Quaternion.Lerp(avatarLeftHand.localRotation,XRInputEventTriggerRef.leftControllerRotation,0.5f)*Quaternion.Euler(handRotationOffset);
+            avatarLeftHand.localPosition = Vector3.Lerp(avatarLeftHand.localPosition,XRInputEventTriggerRef.leftControllerPosition,0.5f);
+            avatarLeftHand.localRotation = Quaternion.Lerp(avatarLeftHand.localRotation, XRInputEventTriggerRef.leftControllerRotation, 0.5f);
         }
         
         // Right Hand Position
         if (rightTeleportActive)
         {
-            avatarRightHand.position = Vector3.Lerp(avatarRightHand.position,xrRig.transform.position + XRInputEventTriggerRef.rightControllerPosition,0.5f);
-            avatarRightHand.rotation = Quaternion.Lerp(avatarRightHand.rotation,XRInputEventTriggerRef.rightControllerRotation,0.5f)*Quaternion.Euler(handRotationOffset);
+            avatarRightHand.localPosition = Vector3.Lerp(avatarRightHand.localPosition,XRInputEventTriggerRef.rightControllerPosition,0.5f);
+            avatarRightHand.localRotation = Quaternion.Lerp(avatarRightHand.localRotation,XRInputEventTriggerRef.rightControllerRotation,0.5f);
         }
         else
         {
-            avatarRightHand.position = Vector3.Lerp(avatarRightHand.position,xrRig.transform.position + XRInputEventTriggerRef.rightControllerPosition,0.5f);
-            avatarRightHand.rotation = Quaternion.Lerp(avatarRightHand.rotation,XRInputEventTriggerRef.rightControllerRotation,0.5f) * Quaternion.Euler(handRotationOffset); // hand rotation offset?
+            avatarRightHand.localPosition = Vector3.Lerp(avatarRightHand.localPosition,XRInputEventTriggerRef.rightControllerPosition,0.5f);
+            avatarRightHand.localRotation = Quaternion.Lerp(avatarRightHand.localRotation, XRInputEventTriggerRef.rightControllerRotation, 0.5f);
         }
     }
     
@@ -319,6 +327,8 @@ public class XR_TeleportControlSwitcher : MonoBehaviour
                 
                 // Not sure if this is the right way to do this but Snap-Turn uses a similar method.
                 xrRig.transform.rotation = leftTeleportRotation;
+                
+                avatarHandsParent.transform.rotation = leftTeleportRotation;
             }
         }
     }
@@ -346,18 +356,22 @@ public class XR_TeleportControlSwitcher : MonoBehaviour
                 
                 // Not sure if this is the right way to do this but Snap-Turn uses a similar method.
                 xrRig.transform.rotation = rightTeleportRotation;
+
+                avatarHandsParent.transform.rotation = rightTeleportRotation;
+
             }
         }
     }
     
     // From movement controller
-    void OnEndLocomotion(LocomotionSystem locomotionSystem){
-        Debug.Log("Teleporation ended - reset rig position");
-        
-        // reset player body to center of xr rig on teleport end
-        vrPlayer.transform.position = vrPlayer.transform.TransformPoint(xrRig.transform.localPosition);
-        xrRig.transform.localPosition = Vector3.zero;
-    }
+    
+    // void OnEndLocomotion(LocomotionSystem locomotionSystem){
+    //     Debug.Log("Teleporation ended - reset rig position");
+    //     
+    //     // reset player body to center of xr rig on teleport end
+    //     vrPlayer.transform.position = vrPlayer.transform.TransformPoint(xrRig.transform.localPosition);
+    //     xrRig.transform.localPosition = Vector3.zero;
+    // }
     
     
     public void SpawnDirectionalMarkers()
