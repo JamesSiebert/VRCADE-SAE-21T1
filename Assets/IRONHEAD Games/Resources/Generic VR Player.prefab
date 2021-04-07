@@ -1662,15 +1662,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: ADD CREDIT ($10)
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2d05f5cca312b174399dc5fa6b9a16cd, type: 2}
+  m_sharedMaterial: {fileID: -5898185698687140284, guid: 2d05f5cca312b174399dc5fa6b9a16cd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4281771007
+  m_fontColor: {r: 1, g: 0.6392157, b: 0.21176471, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2400,15 +2400,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: GO HOME
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2d05f5cca312b174399dc5fa6b9a16cd, type: 2}
+  m_sharedMaterial: {fileID: -5898185698687140284, guid: 2d05f5cca312b174399dc5fa6b9a16cd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4281771007
+  m_fontColor: {r: 1, g: 0.6392157, b: 0.21176471, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2877,9 +2877,9 @@ MonoBehaviour:
   AvatarBody: {fileID: 2266969782735105123}
   AvatarHand_Left: {fileID: 7538764712363081031}
   AvatarHand_Right: {fileID: 7178725737497677482}
-  XRHead: {fileID: 5117307578097645029}
-  XRHand_Left: {fileID: 1897256604003824783}
-  XRHand_Right: {fileID: 4753735518394070467}
+  XR_Camera: {fileID: 0}
+  XR_LeftBaseController: {fileID: 0}
+  XR_RightBaseController: {fileID: 0}
   headPositionOffset: {x: 0, y: -0.9, z: 0}
   handRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &6921737202309646529
@@ -2917,17 +2917,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8898dd01931de72458b1802c7053325f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LocalXRRigGameobject: {fileID: 3096519974949108916}
-  MainAvatarGameobject: {fileID: 6754947078731088888}
-  AvatarHeadGameobject: {fileID: 7429771759446993597}
-  AvatarBodyGameobject: {fileID: 6244045074819307517}
-  AvatarModelPrefabs:
-  - {fileID: 6698639957168452362, guid: 69edaa7f6d0367845b76420b47e4be35, type: 3}
-  - {fileID: 1974154923505330770, guid: 0c74eca2d21234b42b00d95293f1ee7e, type: 3}
-  - {fileID: 1728414061110574811, guid: e8090dbb771374144a023faf37db10eb, type: 3}
-  - {fileID: 5701194048334369547, guid: 47133d67b3a40f04eb97e5089982ea39, type: 3}
-  - {fileID: 3653637840890810929, guid: 089d38c2beff1f044b446797593d7269, type: 3}
-  PlayerName_Text: {fileID: 4866457930008399645}
+  xrRig: {fileID: 0}
+  mainAvatar: {fileID: 0}
+  avatarHead: {fileID: 0}
+  avatarBody: {fileID: 0}
+  avatarModelPrefabs: []
+  playerNameText: {fileID: 0}
+  xrTeleportControlSwitcher: {fileID: 0}
 --- !u!114 &4907539376369822759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2940,12 +2936,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43064dee7c60ce14288923c80b53d652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generalVRPlayerTransform: {fileID: 4807745128514432440}
+  vrPlayerTransform: {fileID: 0}
   mainAvatarTransform: {fileID: 8037434277848010825}
   headTransform: {fileID: 4440521326521597444}
   bodyTransform: {fileID: 2266969782735105123}
   leftHandTransform: {fileID: 7538764712363081031}
   rightHandTransform: {fileID: 7178725737497677482}
+  m_Distance_VRPlayer: 0
+  m_Direction_VRPlayer: {x: 0, y: 0, z: 0}
+  m_NetworkPosition_VRPlayer: {x: 0, y: 0, z: 0}
+  m_StoredPosition_VRPlayer: {x: 0, y: 0, z: 0}
+  m_NetworkRotation_VRPlayer: {x: 0, y: 0, z: 0, w: 0}
+  m_Angle_VRPlayer: 0
+  m_Distance_MainAvatar: 0
+  m_Direction_MainAvatar: {x: 0, y: 0, z: 0}
+  m_NetworkPosition_MainAvatar: {x: 0, y: 0, z: 0}
+  m_StoredPosition_MainAvatar: {x: 0, y: 0, z: 0}
+  m_NetworkRotation_MainAvatar: {x: 0, y: 0, z: 0, w: 0}
+  m_Angle_MainAvatar: 0
+  m_NetworkRotation_Head: {x: 0, y: 0, z: 0, w: 0}
+  m_Angle_Head: 0
+  m_NetworkRotation_Body: {x: 0, y: 0, z: 0, w: 0}
+  m_Angle_Body: 0
+  m_Distance_LeftHand: 0
+  m_Direction_LeftHand: {x: 0, y: 0, z: 0}
+  m_NetworkPosition_LeftHand: {x: 0, y: 0, z: 0}
+  m_StoredPosition_LeftHand: {x: 0, y: 0, z: 0}
+  m_NetworkRotation_LeftHand: {x: 0, y: 0, z: 0, w: 0}
+  m_Angle_LeftHand: 0
+  m_Distance_RightHand: 0
+  m_Direction_RightHand: {x: 0, y: 0, z: 0}
+  m_NetworkPosition_RightHand: {x: 0, y: 0, z: 0}
+  m_StoredPosition_RightHand: {x: 0, y: 0, z: 0}
+  m_NetworkRotation_RightHand: {x: 0, y: 0, z: 0, w: 0}
+  m_Angle_RightHand: 0
 --- !u!114 &4870732441248411601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2978,6 +3002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enableApiCommunication: 1
+  vrPlayerPhotonView: {fileID: 0}
   checkinURL: http://vrcade.jamessiebert.com/api/checkin
   modifyCreditURL: http://vrcade.jamessiebert.com/api/modify_credit
   getCreditBalanceURL: http://vrcade.jamessiebert.com/api/check_credit
@@ -2999,11 +3024,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  controllers: []
-  head: {fileID: 7429771759446993597}
   teleportationProvider: {fileID: 6438883195553701502}
   MainVRPlayer: {fileID: 3344887222022337880}
   XRRigGameobject: {fileID: 3096519974949108916}
+  xrRig: {fileID: 0}
+  vrPlayer: {fileID: 0}
+  moveSpeed: 3
+  XR_Camera: {fileID: 0}
+  controllers: []
+  mainAvatar: {fileID: 0}
+  avatarHead: {fileID: 0}
+  avatarBody: {fileID: 0}
+  avatarLeftHand: {fileID: 0}
+  avatarRightHand: {fileID: 0}
+  headPositionOffset: {x: 0, y: -0.9, z: 0}
+  handRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &3829236238343539219
 GameObject:
   m_ObjectHideFlags: 0
@@ -3071,7 +3106,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Change Avatar
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2d05f5cca312b174399dc5fa6b9a16cd, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3079,7 +3114,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 1, g: 0.6392157, b: 0.21176471, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3135,7 +3170,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &4938186138196770161
@@ -3360,7 +3395,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: CHECK CREDIT
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2d05f5cca312b174399dc5fa6b9a16cd, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3368,7 +3403,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 1, g: 0.6392157, b: 0.21176471, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3424,7 +3459,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &5859172685564251618
@@ -4368,7 +4403,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Worlds
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2d05f5cca312b174399dc5fa6b9a16cd, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4376,7 +4411,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 1, g: 0.6392157, b: 0.21176471, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4432,7 +4467,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &8284802225823206212
