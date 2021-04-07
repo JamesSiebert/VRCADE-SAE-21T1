@@ -2341,7 +2341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enableApiCommunication: 1
-  vrPlayerPhotonView: {fileID: 0}
+  vrPlayerPhotonView: {fileID: 1196992430374644618}
   checkinURL: http://vrcade.jamessiebert.com/api/checkin
   modifyCreditURL: http://vrcade.jamessiebert.com/api/modify_credit
   getCreditBalanceURL: http://vrcade.jamessiebert.com/api/check_credit
