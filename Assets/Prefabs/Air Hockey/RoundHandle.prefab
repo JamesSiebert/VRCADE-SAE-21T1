@@ -365,7 +365,7 @@ MonoBehaviour:
   prefixField: -1
   observableSearch: 0
   Synchronization: 1
-  OwnershipTransfer: 1
+  OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 4069775426390097872}
   viewIdField: 0
