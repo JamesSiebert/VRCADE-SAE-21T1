@@ -78,6 +78,7 @@ public class JS_XRInputEventTrigger : MonoBehaviour
     public Quaternion leftControllerRotation;
     public Quaternion rightControllerRotation;
     
+    
     void GetLeftDevice()
     {
         InputDevices.GetDevicesAtXRNode(leftXrNode, leftDevices);
@@ -111,19 +112,22 @@ public class JS_XRInputEventTrigger : MonoBehaviour
         
         if (!rightDevice.isValid)
             GetRightDevice();
-        
 
-        // Rotation
-        InputFeatureUsage<Quaternion> leftControllerRot = CommonUsages.deviceRotation;
-        InputFeatureUsage<Quaternion> rightControllerRot = CommonUsages.deviceRotation;
-        leftDevice.TryGetFeatureValue(leftControllerRot, out leftControllerRotation);
-        rightDevice.TryGetFeatureValue(rightControllerRot, out rightControllerRotation);
-        
-        // Position
-        InputFeatureUsage<Vector3> leftControllerPos = CommonUsages.devicePosition; // local
-        InputFeatureUsage<Vector3> rightControllerPos = CommonUsages.devicePosition; // local
-        leftDevice.TryGetFeatureValue(leftControllerPos, out leftControllerPosition);
-        rightDevice.TryGetFeatureValue(rightControllerPos, out rightControllerPosition);
+
+
+            // Read Rotation
+            InputFeatureUsage<Quaternion> leftControllerRot = CommonUsages.deviceRotation;
+            InputFeatureUsage<Quaternion> rightControllerRot = CommonUsages.deviceRotation;
+            leftDevice.TryGetFeatureValue(leftControllerRot, out leftControllerRotation);
+            rightDevice.TryGetFeatureValue(rightControllerRot, out rightControllerRotation);
+            
+            // Read Position
+            InputFeatureUsage<Vector3> leftControllerPos = CommonUsages.devicePosition;
+            InputFeatureUsage<Vector3> rightControllerPos = CommonUsages.devicePosition;
+            leftDevice.TryGetFeatureValue(leftControllerPos, out leftControllerPosition);
+            rightDevice.TryGetFeatureValue(rightControllerPos, out rightControllerPosition);
+
+
         
 
         

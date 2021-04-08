@@ -8,6 +8,11 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class XR_TeleportControlSwitcher : MonoBehaviour
 {
+    /*
+     *  NOTES: Issues with action based controllers, possible fix is to override the position with JS_XRInputEventTrigger positions but everything needs to be coded in thumbs, grab, teleport etc.
+     *  DeviceBased controllers works better with Pun2
+     */
+    
     public GameObject leftDirectController;
     public GameObject leftRayController;
     public XRRayInteractor leftRayInteractor;
@@ -53,6 +58,9 @@ public class XR_TeleportControlSwitcher : MonoBehaviour
 
     private int teleportationLayer;
 
+
+    public bool usingActionBasedController = false;
+
     private void Start()
     {
         //Debug.Log("EpochUnix: " + EpochUnixTime().ToString());
@@ -67,23 +75,6 @@ public class XR_TeleportControlSwitcher : MonoBehaviour
 
     private void Update()
     {
-
-        // OVERRIDE POSITION OF VR CONTROLLERS because tracking is lost when in multiplayer
-        leftDirectController.transform.localPosition = XRInputEventTriggerRef.leftControllerPosition;
-        leftRayController.transform.localPosition = XRInputEventTriggerRef.leftControllerPosition;
-        rightDirectController.transform.localPosition = XRInputEventTriggerRef.rightControllerPosition;
-        rightRayController.transform.localPosition = XRInputEventTriggerRef.rightControllerPosition;
-        
-        // OVERRIDE CONTROLLER ROTATION - fix network issues
-        leftDirectController.transform.localRotation = XRInputEventTriggerRef.leftControllerRotation;
-        leftRayController.transform.localRotation = XRInputEventTriggerRef.leftControllerRotation;
-        rightDirectController.transform.localRotation = XRInputEventTriggerRef.rightControllerRotation;
-        rightRayController.transform.localRotation = XRInputEventTriggerRef.rightControllerRotation;
-
-        
-        
-        
-        
 
         if (leftTeleportActive)
         {
@@ -172,14 +163,14 @@ public class XR_TeleportControlSwitcher : MonoBehaviour
         
             
         // Left Controller - Continuous move stick - fixes issue with continuous move provider not working in multiplayer.
-        if (XRInputEventTriggerRef.leftDevice.TryGetFeatureValue(CommonUsages.primary2DAxis,out Vector2 positionVector))
-        {
-            if (positionVector.magnitude > 0.15f)
-            {
-                //Debug.Log(positionVector);
-                Move(positionVector);
-            }
-        }
+        // if (XRInputEventTriggerRef.leftDevice.TryGetFeatureValue(CommonUsages.primary2DAxis,out Vector2 positionVector))
+        // {
+        //     if (positionVector.magnitude > 0.15f)
+        //     {
+        //         //Debug.Log(positionVector);
+        //         Move(positionVector);
+        //     }
+        // }
         
         // Right Controller - 
         // if (XRInputEventTriggerRef.rightDevice.TryGetFeatureValue(CommonUsages.primary2DAxis,out Vector2 positionVector))
@@ -200,32 +191,36 @@ public class XR_TeleportControlSwitcher : MonoBehaviour
 
         avatarHead.rotation = Quaternion.Lerp(avatarHead.rotation, XR_Camera.rotation, 0.5f);
         avatarBody.rotation = Quaternion.Lerp(avatarBody.rotation, Quaternion.Euler(new Vector3(0, avatarHead.rotation.eulerAngles.y, 0)), 0.05f);
+
         
         // Left Hand Position
         if (leftTeleportActive)
         {
             //  *** Ray Controller
-            avatarLeftHand.localPosition = Vector3.Lerp(avatarLeftHand.localPosition,XRInputEventTriggerRef.leftControllerPosition,0.5f);
-            avatarLeftHand.localRotation = Quaternion.Lerp(avatarLeftHand.localRotation,XRInputEventTriggerRef.leftControllerRotation,0.5f);
+            avatarLeftHand.position = Vector3.Lerp(avatarLeftHand.position,leftRayController.transform.position,0.5f);
+            avatarLeftHand.rotation = Quaternion.Lerp(avatarLeftHand.rotation,leftRayController.transform.rotation,0.5f);
         }
         else
         {
-            // *** Direct Interactor 
-            avatarLeftHand.localPosition = Vector3.Lerp(avatarLeftHand.localPosition,XRInputEventTriggerRef.leftControllerPosition,0.5f);
-            avatarLeftHand.localRotation = Quaternion.Lerp(avatarLeftHand.localRotation, XRInputEventTriggerRef.leftControllerRotation, 0.5f);
+            // *** Direct Interactor // not using local bypasses xr rig position alterations
+            avatarLeftHand.position = Vector3.Lerp(avatarLeftHand.position,leftDirectController.transform.position, 0.5f);
+            avatarLeftHand.rotation = Quaternion.Lerp(avatarLeftHand.rotation, leftDirectController.transform.rotation, 0.5f);
+            
+            //Debug.Log(avatarLeftHand.localPosition + " | " + leftDirectController.transform.localPosition);
         }
-        
+    
         // Right Hand Position
         if (rightTeleportActive)
         {
-            avatarRightHand.localPosition = Vector3.Lerp(avatarRightHand.localPosition,XRInputEventTriggerRef.rightControllerPosition,0.5f);
-            avatarRightHand.localRotation = Quaternion.Lerp(avatarRightHand.localRotation,XRInputEventTriggerRef.rightControllerRotation,0.5f);
+            avatarRightHand.position = Vector3.Lerp(avatarRightHand.position,rightRayController.transform.position,0.5f);
+            avatarRightHand.rotation = Quaternion.Lerp(avatarRightHand.rotation,rightRayController.transform.rotation,0.5f);
         }
         else
         {
-            avatarRightHand.localPosition = Vector3.Lerp(avatarRightHand.localPosition,XRInputEventTriggerRef.rightControllerPosition,0.5f);
-            avatarRightHand.localRotation = Quaternion.Lerp(avatarRightHand.localRotation, XRInputEventTriggerRef.rightControllerRotation, 0.5f);
+            avatarRightHand.position = Vector3.Lerp(avatarRightHand.position,rightDirectController.transform.position,0.5f);
+            avatarRightHand.rotation = Quaternion.Lerp(avatarRightHand.rotation, rightDirectController.transform.rotation, 0.5f);
         }
+
     }
     
     // movement through joystick in multiplayer when continuous move provider stops working
