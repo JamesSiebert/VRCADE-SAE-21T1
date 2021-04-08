@@ -1054,6 +1054,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1905712546029624673, guid: 52d789852d46fa842b165c94f3522874, type: 3}
+      propertyPath: viewIdField
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7354329543089278311, guid: 52d789852d46fa842b165c94f3522874, type: 3}
       propertyPath: m_Name
       value: RoundHandle
@@ -1722,6 +1726,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1905712546029624673, guid: 52d789852d46fa842b165c94f3522874, type: 3}
+      propertyPath: viewIdField
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7354329543089278311, guid: 52d789852d46fa842b165c94f3522874, type: 3}
       propertyPath: m_Name
       value: RoundHandle (1)
