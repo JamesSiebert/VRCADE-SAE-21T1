@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using TMPro;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public class AirHockeyGameManager : MonoBehaviour
 {
@@ -17,11 +18,15 @@ public class AirHockeyGameManager : MonoBehaviour
     public TextMeshProUGUI player2ScoreTMP;
     public GameObject winEffect;
     public Transform winEffectSpawnPoint;
+    public Transform goalEffectSpawnPointPlayer1;
+    public Transform goalEffectSpawnPointPlayer2;
+    
     
     // Other
     public GameObject puckDestroyEffect;
     public Transform player1SpawnPoint;
     public Transform player2SpawnPoint;
+    public GameObject puckSpawnEffect;
 
     
     
@@ -34,8 +39,14 @@ public class AirHockeyGameManager : MonoBehaviour
 
     public void AddPoint(bool player1GoalBox)
     {
+        Debug.Log("Add point called from goal");
+        
         // Spawn puck destroy effect
-        Instantiate (puckDestroyEffect, puck.transform.position, transform.rotation);
+        if(player1GoalBox)
+            Instantiate (puckDestroyEffect, goalEffectSpawnPointPlayer1.position, transform.rotation);
+        else
+            Instantiate (puckDestroyEffect, goalEffectSpawnPointPlayer2.position, transform.rotation);
+            
 
         if (player1GoalBox)
         {
@@ -43,7 +54,7 @@ public class AirHockeyGameManager : MonoBehaviour
             player2Score++;
             
             // Move puck ready for player 1 to use (loser)
-            MovePuck(1);
+            MovePuck(2);
             
             // If score is 10, start win process
             if (player2Score == 10) 
@@ -59,7 +70,7 @@ public class AirHockeyGameManager : MonoBehaviour
             player1Score++;
             
             // Move puck ready for player 2 to use (loser)
-            MovePuck(2);
+            MovePuck(1);
             
             // If score is 10, start win process
             if (player1Score == 10)
@@ -75,7 +86,6 @@ public class AirHockeyGameManager : MonoBehaviour
     {
         player1ScoreTMP.text = "Player 1: " + player1Score + "\n Player 2: " + player2Score;
         player2ScoreTMP.text = "Player 1: " + player1Score + "\n Player 2: " + player2Score;
-        
     }
 
     public void ResetGame()
@@ -108,11 +118,15 @@ public class AirHockeyGameManager : MonoBehaviour
         ResetGame();
     }
 
-    public void MovePuck(int player)
+    private void MovePuck(int player)
     {
+        Debug.Log("Move puck called");
         if (player == 1)
-            puck.transform.position = player1SpawnPoint.position;
+            puck.transform.position = player1SpawnPoint.position; // Issue here, puck not moving on goal.
         else
             puck.transform.position = player2SpawnPoint.position;
+        
+        // Spawn effect
+        Instantiate (puckSpawnEffect, goalEffectSpawnPointPlayer2.position, transform.rotation);
     }
 }

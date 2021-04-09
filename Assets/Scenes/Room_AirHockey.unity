@@ -565,7 +565,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!1 &525124906
 GameObject:
@@ -799,9 +799,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 749159560758356198, guid: 52d789852d46fa842b165c94f3522874, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1905712546029624673, guid: 52d789852d46fa842b165c94f3522874, type: 3}
       propertyPath: viewIdField
       value: 901
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905712546029624673, guid: 52d789852d46fa842b165c94f3522874, type: 3}
+      propertyPath: Synchronization
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069775426390097872, guid: 52d789852d46fa842b165c94f3522874, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7059517282332155712, guid: 52d789852d46fa842b165c94f3522874, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7354329543089278311, guid: 52d789852d46fa842b165c94f3522874, type: 3}
       propertyPath: m_Name
@@ -849,6 +865,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7500792614351910961, guid: 52d789852d46fa842b165c94f3522874, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8810547501617446671, guid: 52d789852d46fa842b165c94f3522874, type: 3}
+      propertyPath: puck
+      value: 
+      objectReference: {fileID: 793338640}
+    - target: {fileID: 8810547501617446671, guid: 52d789852d46fa842b165c94f3522874, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -914,6 +938,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46223e66a2366e74da55753611f513d5, type: 3}
+--- !u!1 &793338640 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3323766587728428839, guid: 46223e66a2366e74da55753611f513d5, type: 3}
+  m_PrefabInstance: {fileID: 793338638}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &797073648
 GameObject:
   m_ObjectHideFlags: 0
@@ -1393,9 +1422,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 749159560758356198, guid: 52d789852d46fa842b165c94f3522874, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1905712546029624673, guid: 52d789852d46fa842b165c94f3522874, type: 3}
       propertyPath: viewIdField
       value: 902
+      objectReference: {fileID: 0}
+    - target: {fileID: 7059517282332155712, guid: 52d789852d46fa842b165c94f3522874, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7354329543089278311, guid: 52d789852d46fa842b165c94f3522874, type: 3}
       propertyPath: m_Name
@@ -1445,6 +1482,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8810547501617446671, guid: 52d789852d46fa842b165c94f3522874, type: 3}
+      propertyPath: puck
+      value: 
+      objectReference: {fileID: 793338640}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52d789852d46fa842b165c94f3522874, type: 3}
 --- !u!1 &987739255
@@ -2185,9 +2226,12 @@ MonoBehaviour:
   player2ScoreTMP: {fileID: 249771849}
   winEffect: {fileID: 8184464872515794870, guid: e221ae6a6e2ad634c9e9a37e2aef6e2a, type: 3}
   winEffectSpawnPoint: {fileID: 1423849723}
+  goalEffectSpawnPointPlayer1: {fileID: 968605277085592785}
+  goalEffectSpawnPointPlayer2: {fileID: 968605277085592784}
   puckDestroyEffect: {fileID: 5566840448500398201, guid: f0ed607aa555bfd4e8c13709860135fa, type: 3}
   player1SpawnPoint: {fileID: 341316886}
   player2SpawnPoint: {fileID: 602570324}
+  puckSpawnEffect: {fileID: 2912378181105015340, guid: 45678e6ba98f6f34da4db6da0dc6884e, type: 3}
 --- !u!4 &1198298042
 Transform:
   m_ObjectHideFlags: 0
@@ -2784,7 +2828,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 968605277441403050, guid: bdcba71fe6671194e8f1927add16f8f1, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 968605277441403050, guid: bdcba71fe6671194e8f1927add16f8f1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2834,12 +2878,38 @@ PrefabInstance:
       propertyPath: airHockeyGameManager
       value: 
       objectReference: {fileID: 1198298041}
+    - target: {fileID: 4517001400714808188, guid: bdcba71fe6671194e8f1927add16f8f1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791437080018085499, guid: bdcba71fe6671194e8f1927add16f8f1, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 5425602332998768183, guid: bdcba71fe6671194e8f1927add16f8f1, type: 3}
       propertyPath: airHockeyGameManager
       value: 
       objectReference: {fileID: 1198298041}
+    - target: {fileID: 6818794558474339180, guid: bdcba71fe6671194e8f1927add16f8f1, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7971036601788922459, guid: bdcba71fe6671194e8f1927add16f8f1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.02
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdcba71fe6671194e8f1927add16f8f1, type: 3}
+--- !u!4 &968605277085592784 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6818794558474339180, guid: bdcba71fe6671194e8f1927add16f8f1, type: 3}
+  m_PrefabInstance: {fileID: 968605277085592783}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &968605277085592785 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4791437080018085499, guid: bdcba71fe6671194e8f1927add16f8f1, type: 3}
+  m_PrefabInstance: {fileID: 968605277085592783}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4766267266471857247
 Transform:
   m_ObjectHideFlags: 0

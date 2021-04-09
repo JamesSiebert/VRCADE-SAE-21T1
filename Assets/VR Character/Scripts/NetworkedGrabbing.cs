@@ -17,6 +17,7 @@ public class NetworkedGrabbing : MonoBehaviourPunCallbacks, IPunOwnershipCallbac
     PhotonView m_photon_view; // not standard styling reflects photon's sync scripts
     Rigidbody rb;
     public bool isBeingHeld = false;
+    public bool allowKinematicStateChanges = true;
 
     private void Awake()
     {
@@ -33,12 +34,16 @@ public class NetworkedGrabbing : MonoBehaviourPunCallbacks, IPunOwnershipCallbac
     {
         if(isBeingHeld)
         {
-            rb.isKinematic = true; // stops weird gravity conflict visible on clients
+            if(allowKinematicStateChanges)
+                rb.isKinematic = true; // stops weird gravity conflict visible on clients - Breaks air hockey though
+            
             gameObject.layer = 13; // Change the layer to InHand
         }
         else
         {
-            rb.isKinematic = false; // stops weird gravity conflict visible on clients
+            if(allowKinematicStateChanges)
+                rb.isKinematic = false; // stops weird gravity conflict visible on clients
+            
             gameObject.layer = 8; // Change the layer to Interactable
         }
     }
@@ -54,6 +59,8 @@ public class NetworkedGrabbing : MonoBehaviourPunCallbacks, IPunOwnershipCallbac
     public void OnSelectEnter()
     {
         Debug.Log("Network Grab start");
+        
+        //ISSUE HERE
         m_photon_view.RPC("StartNetworkedGrabbing", RpcTarget.AllBuffered); // RPC - AllBuffered calls method and applies to all players even players yet to join
 
         if(m_photon_view.Owner == PhotonNetwork.LocalPlayer)
@@ -62,6 +69,7 @@ public class NetworkedGrabbing : MonoBehaviourPunCallbacks, IPunOwnershipCallbac
         }
         else
         {
+            Debug.Log("Call transfer ownership");
             TransferOwnership();
         }
     }
@@ -83,13 +91,13 @@ public class NetworkedGrabbing : MonoBehaviourPunCallbacks, IPunOwnershipCallbac
         if(targetView != m_photon_view){
             return;
         }
-
+    
         Debug.Log("OnOwnership requested for: " + targetView.name + " from: " + requestingPlayer.NickName);
         
         // Transfers ownership to new player
         m_photon_view.TransferOwnership(requestingPlayer);
     }
-
+    
     public void OnOwnershipTransfered(PhotonView targetView, Player previousOwner)
     {
         Debug.Log("Transfer is complete. New owner: " + targetView.Owner.NickName);
