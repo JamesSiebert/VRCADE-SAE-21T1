@@ -302,6 +302,7 @@ GameObject:
   - component: {fileID: 420424635}
   - component: {fileID: 353593261954007822}
   - component: {fileID: 6533043516185430167}
+  - component: {fileID: 8233733447321170881}
   m_Layer: 0
   m_Name: Bow
   m_TagString: Untagged
@@ -479,8 +480,8 @@ MonoBehaviour:
   Group: 0
   prefixField: -1
   observableSearch: 0
-  Synchronization: 1
-  OwnershipTransfer: 0
+  Synchronization: 3
+  OwnershipTransfer: 2
   ObservedComponents:
   - {fileID: 6533043516185430167}
   viewIdField: 0
@@ -502,6 +503,19 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &8233733447321170881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2589571369817754473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f38372126ddf7044d80316be5517a429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isBeingHeld: 0
 --- !u!1 &3399165058911810496
 GameObject:
   m_ObjectHideFlags: 0

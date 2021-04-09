@@ -10,7 +10,7 @@ public class AirHockeyGameManager : MonoBehaviour
     // private
     public int player1Score = 0;
     public int player2Score = 0;
-    public GameObject currentPuck;
+    public GameObject puck;
     
     // Scoreboard
     public TextMeshProUGUI player1ScoreTMP;
@@ -19,7 +19,6 @@ public class AirHockeyGameManager : MonoBehaviour
     public Transform winEffectSpawnPoint;
     
     // Other
-    public GameObject puck;
     public GameObject puckDestroyEffect;
     public Transform player1SpawnPoint;
     public Transform player2SpawnPoint;
@@ -36,15 +35,15 @@ public class AirHockeyGameManager : MonoBehaviour
     public void AddPoint(bool player1GoalBox)
     {
         // Spawn puck destroy effect
-        Instantiate (puckDestroyEffect, currentPuck.transform.position, transform.rotation);
-            
-        // Destroy Puck
-        Destroy(currentPuck);
+        Instantiate (puckDestroyEffect, puck.transform.position, transform.rotation);
 
         if (player1GoalBox)
         {
             // Add score to player
             player2Score++;
+            
+            // Move puck ready for player 1 to use (loser)
+            MovePuck(1);
             
             // If score is 10, start win process
             if (player2Score == 10) 
@@ -52,9 +51,6 @@ public class AirHockeyGameManager : MonoBehaviour
             else
             {
                 UpdateUi();
-                
-                // Spawn puck to loser side
-                currentPuck = Instantiate (puck, player1SpawnPoint.position, transform.rotation);
             }
         }
         else
@@ -62,15 +58,15 @@ public class AirHockeyGameManager : MonoBehaviour
             // Add score to player
             player1Score++;
             
+            // Move puck ready for player 2 to use (loser)
+            MovePuck(2);
+            
             // If score is 10, start win process
             if (player1Score == 10)
                 StartCoroutine(ProcessWin(1));
             else
             {
                 UpdateUi();
-                
-                // Spawn puck to loser side
-                currentPuck = Instantiate (puck, player2SpawnPoint.position, transform.rotation);
             }
         }
     }
@@ -89,9 +85,6 @@ public class AirHockeyGameManager : MonoBehaviour
         player2Score = 0;
         
         UpdateUi();
-        
-        // Spawn puck to player 1
-        currentPuck = Instantiate (puck, player1SpawnPoint.position, transform.rotation);
     }
     
     
@@ -113,5 +106,13 @@ public class AirHockeyGameManager : MonoBehaviour
         yield return new WaitForSeconds(5);
 
         ResetGame();
+    }
+
+    public void MovePuck(int player)
+    {
+        if (player == 1)
+            puck.transform.position = player1SpawnPoint.position;
+        else
+            puck.transform.position = player2SpawnPoint.position;
     }
 }

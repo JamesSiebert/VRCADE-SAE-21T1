@@ -26,12 +26,19 @@ public class TargetSpawner : MonoBehaviour
 
     public void RemoveAndRespawn(GameObject GO)
     {
-        targetList.Remove(GO);
-        targetList.Add(SpawnNewTarget());
+        //targetList.Remove(GO);
+        //targetList.Add(SpawnNewTarget());
+        MoveTarget(GO);
     }
 
     public GameObject SpawnNewTarget()
     {
         return Instantiate(targetPrefab, new Vector3(Random.Range(-15.0f, 15.0f), Random.Range(0f, 15.0f), Random.Range(3.0f, 15.0f)), Quaternion.Euler((Random.Range(0, 3)*90), (Random.Range(0, 3)*90), (Random.Range(0, 3)*90)));
+    }
+    
+    public void MoveTarget(GameObject GO)
+    {
+        GO.transform.position = new Vector3(Random.Range(-15.0f, 15.0f), Random.Range(0f, 15.0f), Random.Range(3.0f, 15.0f));
+        GO.transform.rotation = Quaternion.Euler((Random.Range(0, 3) * 90), (Random.Range(0, 3) * 90), (Random.Range(0, 3) * 90));
     }
 }

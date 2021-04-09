@@ -6,8 +6,15 @@ using Photon.Realtime;
 
 public class NetworkedGrabbing : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks
 {
-
-    PhotonView m_photon_view;
+    /*
+     * Attach to XR Grab Interactable Select Entered and Select Exited events
+     * Photon View needs to be observing the transform and ownership transfer: Request (gives ownership if allowed, e.g you cant take someones gun) alternative "Takeover" (gives ownership to anyone who wants it) 
+     *
+     * More info: https://doc.photonengine.com/en-us/pun/v1/demos-and-tutorials/package-demos/ownership-transfer
+     */
+    
+    
+    PhotonView m_photon_view; // not standard styling reflects photon's sync scripts
     Rigidbody rb;
     public bool isBeingHeld = false;
 
@@ -21,17 +28,17 @@ public class NetworkedGrabbing : MonoBehaviourPunCallbacks, IPunOwnershipCallbac
         rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if(isBeingHeld)
         {
-            rb.isKinematic = true;
+            rb.isKinematic = true; // stops weird gravity conflict visible on clients
             gameObject.layer = 13; // Change the layer to InHand
         }
         else
         {
-            rb.isKinematic = false;
+            rb.isKinematic = false; // stops weird gravity conflict visible on clients
             gameObject.layer = 8; // Change the layer to Interactable
         }
     }
@@ -41,11 +48,13 @@ public class NetworkedGrabbing : MonoBehaviourPunCallbacks, IPunOwnershipCallbac
         m_photon_view.RequestOwnership();
     }
 
-    // when player grabs object it becomes the owner of the object, this allows for network replication
+    // Called when object is grabbed
+    // Called from OnSelect Entered Event in XR Grab Interactable component
+    // When player grabs object they become the owner of the object, this allows for network replication. only owner can control networked objects
     public void OnSelectEnter()
     {
         Debug.Log("Network Grab start");
-        m_photon_view.RPC("StartNetworkedGrabbing", RpcTarget.AllBuffered); // calls method and applies to all players even players yet to join
+        m_photon_view.RPC("StartNetworkedGrabbing", RpcTarget.AllBuffered); // RPC - AllBuffered calls method and applies to all players even players yet to join
 
         if(m_photon_view.Owner == PhotonNetwork.LocalPlayer)
         {
@@ -57,20 +66,27 @@ public class NetworkedGrabbing : MonoBehaviourPunCallbacks, IPunOwnershipCallbac
         }
     }
 
+    
+    // Called when object is released
+    // Called from OnSelect Exited Event in XR Grab Interactable component
     public void OnSelectExit()
     {
         Debug.Log("Network Grab end");
-        m_photon_view.RPC("StopNetworkedGrabbing", RpcTarget.AllBuffered);
+        
+        m_photon_view.RPC("StopNetworkedGrabbing", RpcTarget.AllBuffered); //RPC Call
     }
 
+    // Callbacks target view is this view, requesting player is the player who wants to own it
     public void OnOwnershipRequest(PhotonView targetView, Player requestingPlayer)
     {
-        // Stops transferring ownership of all objects of same type
+        // Stops transferring ownership of all objects of same type e.g 2 Bows in scene, both change ownership
         if(targetView != m_photon_view){
             return;
         }
 
         Debug.Log("OnOwnership requested for: " + targetView.name + " from: " + requestingPlayer.NickName);
+        
+        // Transfers ownership to new player
         m_photon_view.TransferOwnership(requestingPlayer);
     }
 
@@ -80,15 +96,16 @@ public class NetworkedGrabbing : MonoBehaviourPunCallbacks, IPunOwnershipCallbac
     }
 
 
+    // Changes isBeingHeld bool on all players - this syncs gravity on/off - also prevents other players taking ownership of object
     // Remote procedure calls (RPC) are the method calls on remote clients in the same room
     // e.g sync health, inform all other players of changes
-    [PunRPC]
+    [PunRPC] //Execute across network
     public void StartNetworkedGrabbing() // network - disable object gravity (RB - kinematic)
     {
         isBeingHeld = true;
     }
 
-    [PunRPC]
+    [PunRPC] //Execute across network
     public void StopNetworkedGrabbing() // network - enable object gravity
     {
         isBeingHeld = false;
