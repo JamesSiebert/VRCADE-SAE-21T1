@@ -14,7 +14,7 @@ public class NetworkedGrabbing : MonoBehaviourPunCallbacks, IPunOwnershipCallbac
      */
     
     
-    PhotonView m_photon_view; // not standard styling reflects photon's sync scripts
+    public PhotonView m_photon_view; // not standard styling reflects photon's sync scripts
     Rigidbody rb;
     public bool isBeingHeld = false;
     public bool allowKinematicStateChanges = true;
