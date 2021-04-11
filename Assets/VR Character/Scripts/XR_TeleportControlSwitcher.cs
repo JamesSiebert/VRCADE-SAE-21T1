@@ -323,7 +323,10 @@ public class XR_TeleportControlSwitcher : MonoBehaviour
                 // Not sure if this is the right way to do this but Snap-Turn uses a similar method.
                 xrRig.transform.rotation = leftTeleportRotation;
                 
-                avatarHandsParent.transform.rotation = leftTeleportRotation;
+                // rotate avatar? test
+                mainAvatar.transform.rotation = leftTeleportRotation;
+                
+                //avatarHandsParent.transform.rotation = leftTeleportRotation;
             }
         }
     }

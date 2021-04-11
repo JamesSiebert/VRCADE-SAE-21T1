@@ -1995,8 +1995,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6372747654612147673}
-  m_RootOrder: 1
+  m_Father: {fileID: 5960572330759378573}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3495571301309000181
 MonoBehaviour:
@@ -2181,8 +2181,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6372747654612147673}
-  m_RootOrder: 0
+  m_Father: {fileID: 5960572330759378573}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4062912708817595840
 MonoBehaviour:
@@ -3116,6 +3116,8 @@ Transform:
   - {fileID: 5960572329631412649}
   - {fileID: 5960572330626348342}
   - {fileID: 5960572331314862567}
+  - {fileID: 5960572330296864341}
+  - {fileID: 5960572330134172089}
   - {fileID: 6372747654612147673}
   m_Father: {fileID: 5960572330188929189}
   m_RootOrder: 1
@@ -4126,6 +4128,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6372747654612147673}
+  - component: {fileID: 690599983881013331}
+  - component: {fileID: 7653332911979813629}
   m_Layer: 10
   m_Name: Hands
   m_TagString: Untagged
@@ -4143,9 +4147,46 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 5960572330296864341}
-  - {fileID: 5960572330134172089}
+  m_Children: []
   m_Father: {fileID: 5960572330759378573}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &690599983881013331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9156088155500132826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  observableSearch: 0
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 7653332911979813629}
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &7653332911979813629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9156088155500132826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
