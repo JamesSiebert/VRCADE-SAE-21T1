@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_animator: {fileID: 2079866563094681188}
   isLeftHand: 0
-  debug: 1
+  debug: 0
 --- !u!114 &7749292931939131391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29,7 +29,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_animator: {fileID: 2093858261831629637}
   isLeftHand: 1
-  debug: 1
+  debug: 0
 --- !u!114 &8402495692031704220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_animator: {fileID: 3436993508239749534}
   isLeftHand: 0
-  debug: 1
+  debug: 0
 --- !u!114 &2947810461994818567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_animator: {fileID: 5391896376204709119}
   isLeftHand: 1
-  debug: 1
+  debug: 0
 --- !u!1 &5873885425364681879
 GameObject:
   m_ObjectHideFlags: 0

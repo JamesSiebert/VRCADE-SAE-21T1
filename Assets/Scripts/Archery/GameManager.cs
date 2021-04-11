@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Photon.Realtime;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class GameManager : MonoBehaviour
     public AudioClip GameSessionSoundtrack;
     public AudioSource audioSource;
 
+    public Text player1ScoreText;
+    public Text player2ScoreText;
+    public Text timeRemainingText;
+
     public void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -24,6 +29,8 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game length: " + maxGameTime);
         
         PlayBGMusic();
+        
+        Reset();
     } 
 
     void Update()
@@ -31,7 +38,7 @@ public class GameManager : MonoBehaviour
         if (timerActive)
         {
             secondsRemaining -= Time.deltaTime;
-            // update ui every second
+            UpdateTimerUI();
             
             if (secondsRemaining < 0)
             {
@@ -50,11 +57,12 @@ public class GameManager : MonoBehaviour
     {
         Reset();
         StartGameSessionMusic();
-        UpdateUI();
+        UpdateScoreUI();
     }
     
     public void EndGameSession()
     {
+        timerActive = false;
         // if game was played until the end
         if (secondsRemaining == 0)
         {
@@ -62,6 +70,7 @@ public class GameManager : MonoBehaviour
         }
         
         PlayBGMusic();
+        Reset();
     }
 
     public void PlayBGMusic()
@@ -79,9 +88,22 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void UpdateUI()
+    public void UpdateScoreUI()
     {
+        player1ScoreText.text = $"Player 1 Score: {player1Hits}";
+        player2ScoreText.text = $"Player 2 Score: {player2Hits}";
         
+    }
+
+    public void UpdateTimerUI()
+    {
+
+        float timeText = Mathf.Round(secondsRemaining);
+
+        if (timeText == 0f)
+            timeRemainingText.text = "Game Inactive";
+        else
+            timeRemainingText.text = "Time Remaining: " + timeText.ToString();
     }
     
     public void Reset()
@@ -89,12 +111,13 @@ public class GameManager : MonoBehaviour
         player1Hits = 0;
         player2Hits = 0;
         secondsRemaining = maxGameTime;
-        
+        UpdateScoreUI();
+        UpdateTimerUI();
     }
 
     public void SaveScores()
     {
-        
+        // player api communications update score
     }
 
     public void RecordHit(int PlayerId)
@@ -107,6 +130,7 @@ public class GameManager : MonoBehaviour
         {
             player2Hits++;
         }
+        UpdateScoreUI();
     }
     
 }
