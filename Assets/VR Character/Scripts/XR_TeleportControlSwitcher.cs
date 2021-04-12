@@ -323,10 +323,7 @@ public class XR_TeleportControlSwitcher : MonoBehaviour
                 // Not sure if this is the right way to do this but Snap-Turn uses a similar method.
                 xrRig.transform.rotation = leftTeleportRotation;
                 
-                // rotate avatar? test
                 mainAvatar.transform.rotation = leftTeleportRotation;
-                
-                //avatarHandsParent.transform.rotation = leftTeleportRotation;
             }
         }
     }
@@ -355,23 +352,12 @@ public class XR_TeleportControlSwitcher : MonoBehaviour
                 // Not sure if this is the right way to do this but Snap-Turn uses a similar method.
                 xrRig.transform.rotation = rightTeleportRotation;
 
-                avatarHandsParent.transform.rotation = rightTeleportRotation;
-
+                mainAvatar.transform.rotation = rightTeleportRotation;
             }
         }
     }
-    
-    // From movement controller
-    
-    // void OnEndLocomotion(LocomotionSystem locomotionSystem){
-    //     Debug.Log("Teleporation ended - reset rig position");
-    //     
-    //     // reset player body to center of xr rig on teleport end
-    //     vrPlayer.transform.position = vrPlayer.transform.TransformPoint(xrRig.transform.localPosition);
-    //     xrRig.transform.localPosition = Vector3.zero;
-    // }
-    
-    
+
+
     public void SpawnDirectionalMarkers()
     {
         leftDirectionalMarkerRef = Instantiate(DirectionalMarkerPrefab, new Vector3(0,0,0), Quaternion.identity);

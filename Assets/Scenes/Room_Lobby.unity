@@ -945,6 +945,7 @@ GameObject:
   m_Component:
   - component: {fileID: 117240411}
   - component: {fileID: 117240412}
+  - component: {fileID: 117240413}
   m_Layer: 5
   m_Name: UI Manager
   m_TagString: Untagged
@@ -989,6 +990,20 @@ MonoBehaviour:
   displayTextTMPro: {fileID: 1255989369}
   sliderPercentageText: {fileID: 960856817}
   UIPanel: {fileID: 134238809}
+--- !u!114 &117240413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117240410}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27e7b68d5c6f7544a88f2a3d26a6cb6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UICanvas: {fileID: 0}
+  UICamera: {fileID: 0}
 --- !u!1 &119622396
 GameObject:
   m_ObjectHideFlags: 0
