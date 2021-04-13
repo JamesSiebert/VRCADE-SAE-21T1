@@ -13,54 +13,50 @@ public class JS_XRInputEventTrigger : MonoBehaviour
     
     // User settings
     public bool trackLeftPrimaryButton;
+    public bool leftPrimaryButtonPressed;    // Used to track release
     public UnityEvent OnLeftPrimaryPress;
     public UnityEvent OnLeftPrimaryRelease;
     
     public bool trackLeftSecondaryButton;
+    public bool leftSecondaryButtonPressed;    // Used to track release
     public UnityEvent OnLeftSecondaryPress;
     public UnityEvent OnLeftSecondaryRelease;
     
     public bool trackLeftGripButton;
+    public bool leftGripButtonPressed;    // Used to track release
     public UnityEvent OnLeftGripPress;
     public UnityEvent OnLeftGripRelease;
     
     public bool trackLeftTriggerButton;
+    public bool leftTriggerButtonPressed;    // Used to track release
     public UnityEvent OnLeftTriggerPress;
     public UnityEvent OnLeftTriggerRelease;
     
     public bool trackLeftMenuButton;
+    public bool leftMenuButtonPressed;    // Used to track release
     public UnityEvent OnLeftMenuPress;
     public UnityEvent OnLeftMenuRelease;
     
     
     public bool trackRightPrimaryButton;
+    public bool rightPrimaryButtonPressed;    // Used to track release
     public UnityEvent OnRightPrimaryPress;
     public UnityEvent OnRightPrimaryRelease;
     
     public bool trackRightSecondaryButton;
+    public bool rightSecondaryButtonPressed;    // Used to track release
     public UnityEvent OnRightSecondaryPress;
     public UnityEvent OnRightSecondaryRelease;
     
     public bool trackRightGripButton;
+    public bool rightGripButtonPressed;    // Used to track release
     public UnityEvent OnRightGripPress;
     public UnityEvent OnRightGripRelease;
     
     public bool trackRightTriggerButton;
+    public bool rightTriggerButtonPressed;    // Used to track release
     public UnityEvent OnRightTriggerPress;
     public UnityEvent OnRightTriggerRelease;
-    
-    
-    
-    // Used to track release
-    public bool leftPrimaryButtonPressed { get; private set; }
-    public bool leftSecondaryButtonPressed { get; private set; }
-    public bool leftGripButtonPressed { get; private set; }
-    public bool leftTriggerButtonPressed { get; private set; }
-    public bool leftMenuButtonPressed { get; private set; }
-    public bool rightPrimaryButtonPressed { get; private set; }
-    public bool rightSecondaryButtonPressed { get; private set; }
-    public bool rightGripButtonPressed { get; private set; }
-    public bool rightTriggerButtonPressed { get; private set; }
     
     
 
@@ -136,15 +132,19 @@ public class JS_XRInputEventTrigger : MonoBehaviour
             bool value = false;
             InputFeatureUsage<bool> usage = CommonUsages.primaryButton;
 
+            // If button is being pressed
             if (leftDevice.TryGetFeatureValue(usage, out value) && value)
             {
-                if (!leftPrimaryButtonPressed) // If start press
+                // If this is the first call while being pressed
+                if (!leftPrimaryButtonPressed)
                 {
+                    // Run this once
                     if(showDebugMessages){Debug.Log("Left Primary Pressed");}
                     leftPrimaryButtonPressed = true;
                     OnLeftPrimaryPress.Invoke();
                 }
             }
+            //
             else if (leftPrimaryButtonPressed) // If released
             {
                 if(showDebugMessages){Debug.Log("Left Primary Released");}

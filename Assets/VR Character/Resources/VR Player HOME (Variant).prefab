@@ -15,6 +15,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 202111821486621105, guid: 4a5198c01528dee4f8d06b5878365fcf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1196992430374644618, guid: 4a5198c01528dee4f8d06b5878365fcf, type: 3}
+      propertyPath: Synchronization
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1196992430374644618, guid: 4a5198c01528dee4f8d06b5878365fcf, type: 3}
+      propertyPath: ObservedComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2290698958441273111, guid: 4a5198c01528dee4f8d06b5878365fcf, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -27,8 +39,16 @@ PrefabInstance:
       propertyPath: vrPlayerPhotonView
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4731497857024863001, guid: 4a5198c01528dee4f8d06b5878365fcf, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5960572329877381953, guid: 4a5198c01528dee4f8d06b5878365fcf, type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5960572329877381955, guid: 4a5198c01528dee4f8d06b5878365fcf, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5960572329976189737, guid: 4a5198c01528dee4f8d06b5878365fcf, type: 3}
@@ -103,6 +123,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8899724144356660774, guid: 4a5198c01528dee4f8d06b5878365fcf, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5052540366420111527, guid: 4a5198c01528dee4f8d06b5878365fcf, type: 3}
     - {fileID: 7768031934507047912, guid: 4a5198c01528dee4f8d06b5878365fcf, type: 3}
@@ -119,6 +143,8 @@ PrefabInstance:
     - {fileID: 5960572330088677432, guid: 4a5198c01528dee4f8d06b5878365fcf, type: 3}
     - {fileID: 3981396039793255888, guid: 4a5198c01528dee4f8d06b5878365fcf, type: 3}
     - {fileID: 5960572330188929192, guid: 4a5198c01528dee4f8d06b5878365fcf, type: 3}
+    - {fileID: 8899724144356660774, guid: 4a5198c01528dee4f8d06b5878365fcf, type: 3}
+    - {fileID: 4731497857024863001, guid: 4a5198c01528dee4f8d06b5878365fcf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4a5198c01528dee4f8d06b5878365fcf, type: 3}
 --- !u!1 &2488192423895538093 stripped
 GameObject:

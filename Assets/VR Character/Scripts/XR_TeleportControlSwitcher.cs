@@ -22,6 +22,7 @@ public class XR_TeleportControlSwitcher : MonoBehaviour
     public XRRayInteractor rightRayInteractor;
 
     public bool teleportOnDeactivate;
+    public bool teleportOnTrigger;
     public bool useDirectionalTeleporting;
     public GameObject DirectionalMarkerPrefab;
     public JS_XRInputEventTrigger XRInputEventTriggerRef;    // get controller rotations
@@ -161,26 +162,6 @@ public class XR_TeleportControlSwitcher : MonoBehaviour
             UpdateAvatarBodyPositions();
         }
         
-            
-        // Left Controller - Continuous move stick - fixes issue with continuous move provider not working in multiplayer.
-        // if (XRInputEventTriggerRef.leftDevice.TryGetFeatureValue(CommonUsages.primary2DAxis,out Vector2 positionVector))
-        // {
-        //     if (positionVector.magnitude > 0.15f)
-        //     {
-        //         //Debug.Log(positionVector);
-        //         Move(positionVector);
-        //     }
-        // }
-        
-        // Right Controller - 
-        // if (XRInputEventTriggerRef.rightDevice.TryGetFeatureValue(CommonUsages.primary2DAxis,out Vector2 positionVector))
-        // {
-        //     if (positionVector.magnitude > 0.15f)
-        //     {
-        //         Debug.Log(positionVector);
-        //         Move(positionVector);
-        //     }
-        // }
     }
     
     
@@ -223,20 +204,20 @@ public class XR_TeleportControlSwitcher : MonoBehaviour
 
     }
     
-    // movement through joystick in multiplayer when continuous move provider stops working
-    private void Move(Vector2 positionVector)
-    {
-        // Apply the touch position to the head's forward Vector
-        Vector3 direction = new Vector3(positionVector.x, 0, positionVector.y);
-        Vector3 headRotation = new Vector3(0, avatarHead.eulerAngles.y, 0);
-    
-        // Rotate the input direction by the horizontal head rotation
-        direction = Quaternion.Euler(headRotation) * direction;
-    
-        // Apply speed and move
-        Vector3 movement = direction * moveSpeed;
-        vrPlayer.transform.position += (Vector3.ProjectOnPlane(Time.deltaTime * movement, Vector3.up));
-    }
+    // // movement through joystick in multiplayer when continuous move provider stops working
+    // private void Move(Vector2 positionVector)
+    // {
+    //     // Apply the touch position to the head's forward Vector
+    //     Vector3 direction = new Vector3(positionVector.x, 0, positionVector.y);
+    //     Vector3 headRotation = new Vector3(0, avatarHead.eulerAngles.y, 0);
+    //
+    //     // Rotate the input direction by the horizontal head rotation
+    //     direction = Quaternion.Euler(headRotation) * direction;
+    //
+    //     // Apply speed and move
+    //     Vector3 movement = direction * moveSpeed;
+    //     vrPlayer.transform.position += (Vector3.ProjectOnPlane(Time.deltaTime * movement, Vector3.up));
+    // }
 
 
     // Left Teleport Controller
@@ -250,7 +231,7 @@ public class XR_TeleportControlSwitcher : MonoBehaviour
     }
     public void DeactivateLeftTeleportController()
     {
-        // Teleport
+        // Teleport on deactivate
         if(teleportOnDeactivate)
             InitiateLeftTeleport();
         
@@ -275,7 +256,7 @@ public class XR_TeleportControlSwitcher : MonoBehaviour
     }
     public void DeactivateRightTeleportController()
     {
-        // Teleport
+        // Teleport on deactivate
         if(teleportOnDeactivate)
             InitiateRightTeleport();
         
@@ -286,14 +267,30 @@ public class XR_TeleportControlSwitcher : MonoBehaviour
         rightDirectController.SetActive(true);
         rightRayController.SetActive(false);
     }
-    
-    public float EpochUnixTime()
+
+    public void LeftTriggerActivated()
     {
-        DateTime epochStart = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-        float currentEpochTime = (int)(DateTime.UtcNow - epochStart).TotalSeconds;
- 
-        return currentEpochTime;
+        // Left trigger pressed while teleport beam active
+        if (teleportOnTrigger && XRInputEventTriggerRef.leftPrimaryButtonPressed)
+        {
+            // Initiate left teleport
+            InitiateLeftTeleport();
+        }
     }
+    
+    public void RightTriggerActivated()
+    {
+        // Right trigger pressed while teleport beam active
+        if (teleportOnTrigger && XRInputEventTriggerRef.rightPrimaryButtonPressed)
+        {
+            // Initiate right teleport
+            InitiateRightTeleport();
+        }
+    }
+    
+    
+    
+
     
     
     public void InitiateLeftTeleport()
@@ -312,10 +309,10 @@ public class XR_TeleportControlSwitcher : MonoBehaviour
                 // valid teleport destination
                 TeleportRequest request = new TeleportRequest()
                 {
-                    destinationPosition = hit.point,
-                    destinationRotation = leftTeleportRotation, // Attempting to teleport with rotation - not working?
-                    matchOrientation = MatchOrientation.None,
-                    requestTime = EpochUnixTime()
+                    destinationPosition = hit.point
+                    //destinationRotation = leftTeleportRotation, // Attempting to teleport with rotation - not working?
+                    //matchOrientation = MatchOrientation.None,
+                    //requestTime = EpochUnixTime()
                 };
                 // Process teleport
                 provider.QueueTeleportRequest(request);
@@ -326,6 +323,14 @@ public class XR_TeleportControlSwitcher : MonoBehaviour
                 mainAvatar.transform.rotation = leftTeleportRotation;
             }
         }
+    }
+    
+    public float EpochUnixTime()
+    {
+        DateTime epochStart = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+        float currentEpochTime = (int)(DateTime.UtcNow - epochStart).TotalSeconds;
+ 
+        return currentEpochTime;
     }
     
     public void InitiateRightTeleport()
