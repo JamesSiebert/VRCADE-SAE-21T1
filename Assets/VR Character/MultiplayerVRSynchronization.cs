@@ -61,28 +61,28 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
     {
         m_PhotonView = GetComponent<PhotonView>();
 
-        //Main VRPlayer Synch Init
+        //Main VRPlayer Sync Init
         m_StoredPosition_VRPlayer = vrPlayerTransform.position;
         m_NetworkPosition_VRPlayer = Vector3.zero;
         m_NetworkRotation_VRPlayer = Quaternion.identity;
 
-        //Main Avatar Synch Init
+        //Main Avatar Sync Init
         m_StoredPosition_MainAvatar = mainAvatarTransform.localPosition;
         m_NetworkPosition_MainAvatar = Vector3.zero;
         m_NetworkRotation_MainAvatar = Quaternion.identity;
 
-        //Head Synch Init
+        //Head Sync Init
         m_NetworkRotation_Head = Quaternion.identity;
 
-        //Body Synch Init
+        //Body Sync Init
         m_NetworkRotation_Body = Quaternion.identity;
 
-        //Left Hand Synch Init
+        //Left Hand Sync Init
         m_StoredPosition_LeftHand = leftHandTransform.localPosition;
         m_NetworkPosition_LeftHand = Vector3.zero;
         m_NetworkRotation_LeftHand = Quaternion.identity;
 
-        //Right Hand Synch Init
+        //Right Hand Sync Init
         m_StoredPosition_RightHand = rightHandTransform.localPosition;
         m_NetworkPosition_RightHand = Vector3.zero;
         m_NetworkRotation_RightHand = Quaternion.identity;

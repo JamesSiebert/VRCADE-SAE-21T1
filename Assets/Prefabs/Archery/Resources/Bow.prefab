@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 1137606935514613497}
   - component: {fileID: 1137606935514613499}
   - component: {fileID: 1137606935514613500}
-  - component: {fileID: 1137606935514613498}
+  - component: {fileID: 2896796305949597520}
   m_Layer: 8
   m_Name: Notch
   m_TagString: Untagged
@@ -87,7 +87,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1137606935514613496}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.16499996}
+  m_LocalPosition: {x: 0, y: 0, z: -0.164}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 320107371}
@@ -215,7 +215,7 @@ MonoBehaviour:
       m_Calls: []
   start: {fileID: 320107371}
   end: {fileID: 463045334}
---- !u!135 &1137606935514613498
+--- !u!135 &2896796305949597520
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -226,7 +226,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.05
+  m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1137606935890080576
 GameObject:
@@ -567,8 +567,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pullColor:
     serializedVersion: 2
-    key0: {r: 0.49019608, g: 0.49019608, b: 0.49019608, a: 1}
-    key1: {r: 1, g: 1, b: 1, a: 1}
+    key0: {r: 1, g: 0, b: 0.9645357, a: 1}
+    key1: {r: 1, g: 0.9769962, b: 0, a: 1}
     key2: {r: 1, g: 1, b: 1, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -779,7 +779,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bc77364cebd5ea84bbdaa7560bccb7d9, type: 2}
+  - {fileID: 2100000, guid: db23262ba053a7e4c86c19c1d9319078, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

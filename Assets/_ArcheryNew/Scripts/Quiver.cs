@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Photon.Pun;
+using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class Quiver : XRBaseInteractable
@@ -33,7 +34,9 @@ public class Quiver : XRBaseInteractable
     private Arrow CreateArrow(Transform orientation)
     {
         // Create arrow, and get arrow component
-        GameObject arrowObject = Instantiate(arrowPrefab, orientation.position, orientation.rotation);
+        GameObject arrowObject = PhotonNetwork.Instantiate(arrowPrefab.name, orientation.position, orientation.rotation);
+        //GameObject arrowObject = Instantiate(arrowPrefab, orientation.position, orientation.rotation);
+        
         return arrowObject.GetComponent<Arrow>();
     }
 }

@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using Photon.Pun;
+using UnityEngine;
 
 public class TargetHit : MonoBehaviour, IArrowHittable
 {
@@ -7,7 +9,7 @@ public class TargetHit : MonoBehaviour, IArrowHittable
     private AudioSource audioSource;
     private Renderer rend;
     
-    public GameObject explosionPrefab;
+    public GameObject targetExplosionPrefab;
     
     
     void Start()
@@ -23,17 +25,32 @@ public class TargetHit : MonoBehaviour, IArrowHittable
     public void Hit(Arrow arrow)
     {
         Debug.Log("TargetHit()");
-        // Instantiate Explosion
-        Instantiate(explosionPrefab, this.transform.position, Quaternion.identity);
         
+        // Instantiate Explosion locally
+        Instantiate(targetExplosionPrefab, this.transform.position, Quaternion.identity);
+
         targetSpawner.RemoveAndRespawn(this.gameObject); // remove this target from tracker and inform spawner to spawn new target
 
         gameManager.RecordHit(1);
         
-        rend.enabled = false; // target invisible
+        // Make GO Invisible
+         rend.enabled = false; // target invisible
         
-        // delay 5s or when sound finishes playing
-        Destroy(this.gameObject);
+        // Destroy this target in X seconds, allows for all scoring to finish properly
+        StartCoroutine(DestroyThisTarget());
     }
 
+
+    IEnumerator DestroyThisTarget()
+    {
+        //Print the time of when the function is first called.
+        Debug.Log("Target destroys in 2 secs");
+
+        //yield on a new YieldInstruction that waits for 5 seconds.
+        yield return new WaitForSeconds(2);
+
+        // Destroy self
+        PhotonNetwork.Destroy(this.gameObject);
+        //Destroy(this.gameObject);
+    }
 }

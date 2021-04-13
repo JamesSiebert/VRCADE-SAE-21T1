@@ -5246,6 +5246,7 @@ GameObject:
   - component: {fileID: 698841883}
   - component: {fileID: 698841882}
   - component: {fileID: 698841884}
+  - component: {fileID: 698841885}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -5267,8 +5268,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1Hits: 0
   player2Hits: 0
-  maxGameTime: 0
   timerActive: 0
+  maxGameTime: 0
   secondsRemaining: 0
   BGSoundtrack: {fileID: 8300000, guid: 81e306b3212e30843a5198925b504b7c, type: 3}
   GameSessionSoundtrack: {fileID: 8300000, guid: cc9b708b98defda4b9c8aaa2cd4ebff7, type: 3}
@@ -5386,6 +5387,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &698841885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698841881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  observableSearch: 0
+  Synchronization: 1
+  OwnershipTransfer: 2
+  ObservedComponents:
+  - {fileID: 698841882}
+  viewIdField: 3
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!43 &710535398
 Mesh:
   m_ObjectHideFlags: 0
@@ -11137,6 +11161,7 @@ MonoBehaviour:
   targetMaxCount: 10
   targetList: []
   targetPrefab: {fileID: 8199453942343721108, guid: e22e1ac8ecbc2a14fa91221a6d330dbd, type: 3}
+  spawnAreaMax: {x: 15, y: 15, z: 15}
 --- !u!4 &1708177643
 Transform:
   m_ObjectHideFlags: 0

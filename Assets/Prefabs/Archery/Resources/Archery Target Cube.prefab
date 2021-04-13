@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 2814970735652631869}
   - component: {fileID: 410186694469876746}
   - component: {fileID: 3244179309792381533}
-  - component: {fileID: -5545316054736597305}
   m_Layer: 0
   m_Name: Archery Target Cube
   m_TagString: Untagged
@@ -111,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e106f6721842f4fbabaeb95bc9c7c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionPrefab: {fileID: 861816091225680782, guid: f9f758e1ecda49c4b974fb0435411f0e, type: 3}
+  targetExplosionPrefab: {fileID: 861816091225680782, guid: f9f758e1ecda49c4b974fb0435411f0e, type: 3}
 --- !u!114 &410186694469876746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,23 +143,7 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 2
   ObservedComponents:
-  - {fileID: -5545316054736597305}
+  - {fileID: 0}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &-5545316054736597305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8199453942343721108}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1

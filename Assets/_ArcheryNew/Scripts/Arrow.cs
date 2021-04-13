@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using Photon.Pun;
+using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class Arrow : XRGrabInteractable
@@ -97,7 +99,11 @@ public class Arrow : XRGrabInteractable
             if (updatePhase == XRInteractionUpdateOrder.UpdatePhase.Dynamic)
             {
                 if (CheckForCollision())
+                {
                     launched = false;
+                }
+                    
+                
 
                 UpdateLastPosition();
             }
@@ -152,9 +158,8 @@ public class Arrow : XRGrabInteractable
         if (hittable != null)
         {
             hittable.Hit(this);
-            Destroy(this.gameObject);
+            PhotonNetwork.Destroy(this.gameObject);
+            //Destroy(this.gameObject);
         }
-            
-        
     }
 }
