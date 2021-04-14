@@ -7,6 +7,11 @@ public class ScoreResponse
     public int airHockeyTop;
     public int basketballTop;
     public int archeryTop;
+    
+    public string airHockeyTopName;
+    public string basketballTopName;
+    public string archeryTopName;
+
     public int airHockeyPlayerBest;
     public int basketballPlayerBest;
     public int archeryPlayerBest;

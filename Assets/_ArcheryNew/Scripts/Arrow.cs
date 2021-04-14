@@ -15,6 +15,8 @@ public class Arrow : XRGrabInteractable
     [Header("Settings")]
     public float speed = 2000.0f;
 
+    public string ownerName = "TEST";
+
     [Header("Hit")]
     public Transform tip = null;
     public LayerMask layerMask = ~Physics.IgnoreRaycastLayer;

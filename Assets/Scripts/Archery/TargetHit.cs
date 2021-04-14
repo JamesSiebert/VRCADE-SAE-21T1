@@ -31,7 +31,7 @@ public class TargetHit : MonoBehaviour, IArrowHittable
 
         targetSpawner.RemoveAndRespawn(this.gameObject); // remove this target from tracker and inform spawner to spawn new target
 
-        gameManager.RecordHit(1);
+        gameManager.RecordHit(arrow.ownerName);
         
         // Make GO Invisible
          rend.enabled = false; // target invisible

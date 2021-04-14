@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2179614927706237428}
   - component: {fileID: 9043562450772434535}
   - component: {fileID: 9043562450772434534}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Quiver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.75
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &9043562450772434534
 Rigidbody:
@@ -132,7 +132,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!1 &2576357708604838810
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,8 +144,7 @@ GameObject:
   - component: {fileID: 2502230449427255373}
   - component: {fileID: 4021952088400214718}
   - component: {fileID: 1387147695203912743}
-  - component: {fileID: 432551166928492874}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +160,7 @@ Transform:
   m_GameObject: {fileID: 2576357708604838810}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2179614927706237429}
   m_RootOrder: 0
@@ -193,7 +192,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7f280f0aadd307d41ba71d859260b597, type: 2}
+  - {fileID: 2100000, guid: 561497b5da2310c429b2e0c6f13fafa9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -215,16 +214,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &432551166928492874
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2576357708604838810}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}

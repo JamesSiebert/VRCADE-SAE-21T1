@@ -1,16 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks,  IPunObservable
 {
     // Network Synced
-    public int player1Hits;
-    public int player2Hits;
     public bool timerActive;
+
+    public Dictionary<string, int> scoresDictionary = new Dictionary<string, int>();
+    
 
     // Game session soundtrack length
     public float maxGameTime;
@@ -20,9 +23,15 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks,  I
     public AudioClip GameSessionSoundtrack;
     public AudioSource audioSource;
 
-    public Text player1ScoreText;
-    public Text player2ScoreText;
+    public Text uiScoreText;
+    public Text uiTopScoreText;
     public Text timeRemainingText;
+
+    public string topScoreName = "NA";
+    public int topScore = 0;
+
+    public string lastScoreResponseData;
+    
 
     private PhotonView photonView;
     
@@ -36,6 +45,7 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks,  I
     {
         maxGameTime = GameSessionSoundtrack.length;
         PlayBGMusic();
+        this.StartCoroutine(this.TopScoreRequest(this.TopScoreResponseCallback));
     } 
 
     void Update()
@@ -56,7 +66,7 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks,  I
             StartGameSession();
         }
     }
-    
+
     public void PlayBGMusic()
     {
         audioSource.clip = BGSoundtrack;
@@ -73,14 +83,70 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks,  I
 
     public void UpdateScoreUI()
     {
-        player1ScoreText.text = $"Player 1 Score: {player1Hits}";
-        player2ScoreText.text = $"Player 2 Score: {player2Hits}";
-        
+        // Game active
+        if (timerActive)
+        {
+            // Create empty string
+            string scoreText = "";
+
+            // append dictionary scores to string
+            foreach (KeyValuePair<string, int> kvp in scoresDictionary)
+            {
+                scoreText = scoreText + kvp.Key + ": " + kvp.Value.ToString() + "\n";
+            }
+
+            // print scores to game
+            uiScoreText.text = "Scores: \n" + scoreText;
+        }
+        else
+        {
+            // FREE PLAY
+            uiScoreText.text = "FREE PLAY MODE\nStart game to track scores";
+        }
+
+        uiTopScoreText.text = "Top Score: \n" + topScoreName + ": " + topScore.ToString();
     }
+
+    
+    private IEnumerator TopScoreRequest(Action<string> callback = null)
+    {
+        string postURL = "http://vrcade.jamessiebert.com/api/get_scores";
+
+        List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
+        formData.Add(new MultipartFormDataSection("data",
+            "{\"player_id\": \"\"}"));
+        
+        UnityWebRequest request = UnityWebRequest.Post(postURL, formData);
+        
+        // Wait for the response and then get our data
+        yield return request.SendWebRequest();
+        var data = request.downloadHandler.text;
+        
+        if (callback != null)
+            callback(data);
+    }
+    
+    
+    // Callback to act on our response data
+    private void TopScoreResponseCallback(string data)
+    {
+        Debug.Log("Get High Scores Response: " + data);
+        lastScoreResponseData = data;
+
+        // unpack json response
+        ScoreResponse jsonResponseObject = ScoreResponse.CreateFromJSON(data);
+
+        // Update variables
+        topScore = jsonResponseObject.archeryTop;
+        topScoreName = jsonResponseObject.archeryTopName;
+
+        UpdateScoreUI();
+    }
+    
+    
 
     public void UpdateTimerUI()
     {
-
         float timeText = Mathf.Round(secondsRemaining);
 
         if (timeText == 0f)
@@ -105,24 +171,26 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks,  I
         // I am the owner of this object, this will only execute on 1 pc
         if (this.photonView.IsMine)
         {
-            player1Hits = 0;
-            player2Hits = 0;
+            scoresDictionary.Clear();
         }
     }
 
-    public void RecordHit(int PlayerId)
+    public void RecordHit(string playerName)
     {
         RequestOwnership();
 
         if (this.photonView.IsMine)
         {
-            if (PlayerId == 1)
+            // does the player have a score in the dictionary yet?
+            if (scoresDictionary.ContainsKey(playerName))
             {
-                player1Hits++;
-            } 
-            else if (PlayerId == 2)
+                // player name exists in dictionary
+                scoresDictionary[playerName] = scoresDictionary[playerName] + 1;
+            }
+            else
             {
-                player2Hits++;
+                // if no create one and use the supplied name
+                scoresDictionary.Add (playerName, 1);
             }
         }
 
@@ -162,6 +230,9 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks,  I
         if (this.photonView.IsMine)
         {
             Debug.Log("SAVE SCORE > API");
+            
+            
+            this.StartCoroutine(this.TopScoreRequest(this.TopScoreResponseCallback));
         }
     }
 
@@ -170,15 +241,13 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks,  I
         if (stream.IsWriting)
         {
             // we are the owner / host - Send Data
-            stream.SendNext(player1Hits);
-            stream.SendNext(player2Hits);
+            stream.SendNext(scoresDictionary);
             stream.SendNext(timerActive);
         }
         else
         {
             // we are the client - Get Data
-            this.player1Hits = (int) stream.ReceiveNext();
-            this.player2Hits = (int) stream.ReceiveNext();
+            this.scoresDictionary = (Dictionary<string, int>) stream.ReceiveNext();
             this.timerActive = (bool) stream.ReceiveNext();
         }
     }
