@@ -1,119 +1,370 @@
 fileFormatVersion: 2
 guid: 54b1eb8a20dad3b4aa15b075fd14de80
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: bed.001
-    100002: Box001.001
-    100004: Box002.001
-    100006: Box005.001
-    100008: Cylinder.015
-    100010: Cylinder.016
-    100012: Cylinder001.002
-    100014: Cylinder001.003
-    100016: Line002.001
-    100018: Loft001.001
-    100020: Loft002.001
-    100022: Object001.001
-    100024: Plane001.001
-    100026: Plane002.001
-    100028: Plane003.002
-    100030: Plane004.001
-    100032: //RootNode
-    100034: Tree_base.001
-    400000: bed.001
-    400002: Box001.001
-    400004: Box002.001
-    400006: Box005.001
-    400008: Cylinder.015
-    400010: Cylinder.016
-    400012: Cylinder001.002
-    400014: Cylinder001.003
-    400016: Line002.001
-    400018: Loft001.001
-    400020: Loft002.001
-    400022: Object001.001
-    400024: Plane001.001
-    400026: Plane002.001
-    400028: Plane003.002
-    400030: Plane004.001
-    400032: //RootNode
-    400034: Tree_base.001
-    2100000: Plastic_dark.002
-    2100002: neon.blue.002
-    2100004: Plastic.002
-    2100006: neon_pink.002
-    2100008: Lamp.001
-    2100010: Metal.001
-    2100012: Plastic2.001
-    2300000: bed.001
-    2300002: Box001.001
-    2300004: Box002.001
-    2300006: Box005.001
-    2300008: Cylinder.015
-    2300010: Cylinder.016
-    2300012: Cylinder001.002
-    2300014: Cylinder001.003
-    2300016: Line002.001
-    2300018: Loft001.001
-    2300020: Loft002.001
-    2300022: Plane001.001
-    2300024: Plane002.001
-    2300026: Plane003.002
-    2300028: Plane004.001
-    2300030: Tree_base.001
-    3300000: bed.001
-    3300002: Box001.001
-    3300004: Box002.001
-    3300006: Box005.001
-    3300008: Cylinder.015
-    3300010: Cylinder.016
-    3300012: Cylinder001.002
-    3300014: Cylinder001.003
-    3300016: Line002.001
-    3300018: Loft001.001
-    3300020: Loft002.001
-    3300022: Plane001.001
-    3300024: Plane002.001
-    3300026: Plane003.002
-    3300028: Plane004.001
-    3300030: Tree_base.001
-    4300000: Cylinder.016
-    4300002: Cylinder001.003
-    4300004: Cylinder.015
-    4300006: Plane004.001
-    4300008: Plane003.002
-    4300010: Plane002.001
-    4300012: Box005.001
-    4300014: Line002.001
-    4300016: Loft002.001
-    4300018: Loft001.001
-    4300020: Cylinder001.002
-    4300022: Box002.001
-    4300024: Box001.001
-    4300026: Tree_base.001
-    4300028: Plane001.001
-    4300030: bed.001
-    6400000: bed.001
-    6400002: Box001.001
-    6400004: Box002.001
-    6400006: Box005.001
-    6400008: Cylinder.015
-    6400010: Cylinder.016
-    6400012: Cylinder001.002
-    6400014: Cylinder001.003
-    6400016: Line002.001
-    6400018: Loft001.001
-    6400020: Loft002.001
-    6400022: Plane001.001
-    6400024: Plane002.001
-    6400026: Plane003.002
-    6400028: Plane004.001
-    6400030: Tree_base.001
-    2186277476908879412: ImportLogs
-  externalObjects: {}
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: bed.001
+  - first:
+      1: 100002
+    second: Box001.001
+  - first:
+      1: 100004
+    second: Box002.001
+  - first:
+      1: 100006
+    second: Box005.001
+  - first:
+      1: 100008
+    second: Cylinder.015
+  - first:
+      1: 100010
+    second: Cylinder.016
+  - first:
+      1: 100012
+    second: Cylinder001.002
+  - first:
+      1: 100014
+    second: Cylinder001.003
+  - first:
+      1: 100016
+    second: Line002.001
+  - first:
+      1: 100018
+    second: Loft001.001
+  - first:
+      1: 100020
+    second: Loft002.001
+  - first:
+      1: 100022
+    second: Object001.001
+  - first:
+      1: 100024
+    second: Plane001.001
+  - first:
+      1: 100026
+    second: Plane002.001
+  - first:
+      1: 100028
+    second: Plane003.002
+  - first:
+      1: 100030
+    second: Plane004.001
+  - first:
+      1: 100032
+    second: //RootNode
+  - first:
+      1: 100034
+    second: Tree_base.001
+  - first:
+      4: 400000
+    second: bed.001
+  - first:
+      4: 400002
+    second: Box001.001
+  - first:
+      4: 400004
+    second: Box002.001
+  - first:
+      4: 400006
+    second: Box005.001
+  - first:
+      4: 400008
+    second: Cylinder.015
+  - first:
+      4: 400010
+    second: Cylinder.016
+  - first:
+      4: 400012
+    second: Cylinder001.002
+  - first:
+      4: 400014
+    second: Cylinder001.003
+  - first:
+      4: 400016
+    second: Line002.001
+  - first:
+      4: 400018
+    second: Loft001.001
+  - first:
+      4: 400020
+    second: Loft002.001
+  - first:
+      4: 400022
+    second: Object001.001
+  - first:
+      4: 400024
+    second: Plane001.001
+  - first:
+      4: 400026
+    second: Plane002.001
+  - first:
+      4: 400028
+    second: Plane003.002
+  - first:
+      4: 400030
+    second: Plane004.001
+  - first:
+      4: 400032
+    second: //RootNode
+  - first:
+      4: 400034
+    second: Tree_base.001
+  - first:
+      21: 2100000
+    second: Plastic_dark.002
+  - first:
+      21: 2100002
+    second: neon.blue.002
+  - first:
+      21: 2100004
+    second: Plastic.002
+  - first:
+      21: 2100006
+    second: neon_pink.002
+  - first:
+      21: 2100008
+    second: Lamp.001
+  - first:
+      21: 2100010
+    second: Metal.001
+  - first:
+      21: 2100012
+    second: Plastic2.001
+  - first:
+      23: 2300000
+    second: bed.001
+  - first:
+      23: 2300002
+    second: Box001.001
+  - first:
+      23: 2300004
+    second: Box002.001
+  - first:
+      23: 2300006
+    second: Box005.001
+  - first:
+      23: 2300008
+    second: Cylinder.015
+  - first:
+      23: 2300010
+    second: Cylinder.016
+  - first:
+      23: 2300012
+    second: Cylinder001.002
+  - first:
+      23: 2300014
+    second: Cylinder001.003
+  - first:
+      23: 2300016
+    second: Line002.001
+  - first:
+      23: 2300018
+    second: Loft001.001
+  - first:
+      23: 2300020
+    second: Loft002.001
+  - first:
+      23: 2300022
+    second: Plane001.001
+  - first:
+      23: 2300024
+    second: Plane002.001
+  - first:
+      23: 2300026
+    second: Plane003.002
+  - first:
+      23: 2300028
+    second: Plane004.001
+  - first:
+      23: 2300030
+    second: Tree_base.001
+  - first:
+      33: 3300000
+    second: bed.001
+  - first:
+      33: 3300002
+    second: Box001.001
+  - first:
+      33: 3300004
+    second: Box002.001
+  - first:
+      33: 3300006
+    second: Box005.001
+  - first:
+      33: 3300008
+    second: Cylinder.015
+  - first:
+      33: 3300010
+    second: Cylinder.016
+  - first:
+      33: 3300012
+    second: Cylinder001.002
+  - first:
+      33: 3300014
+    second: Cylinder001.003
+  - first:
+      33: 3300016
+    second: Line002.001
+  - first:
+      33: 3300018
+    second: Loft001.001
+  - first:
+      33: 3300020
+    second: Loft002.001
+  - first:
+      33: 3300022
+    second: Plane001.001
+  - first:
+      33: 3300024
+    second: Plane002.001
+  - first:
+      33: 3300026
+    second: Plane003.002
+  - first:
+      33: 3300028
+    second: Plane004.001
+  - first:
+      33: 3300030
+    second: Tree_base.001
+  - first:
+      43: 4300000
+    second: Cylinder.016
+  - first:
+      43: 4300002
+    second: Cylinder001.003
+  - first:
+      43: 4300004
+    second: Cylinder.015
+  - first:
+      43: 4300006
+    second: Plane004.001
+  - first:
+      43: 4300008
+    second: Plane003.002
+  - first:
+      43: 4300010
+    second: Plane002.001
+  - first:
+      43: 4300012
+    second: Box005.001
+  - first:
+      43: 4300014
+    second: Line002.001
+  - first:
+      43: 4300016
+    second: Loft002.001
+  - first:
+      43: 4300018
+    second: Loft001.001
+  - first:
+      43: 4300020
+    second: Cylinder001.002
+  - first:
+      43: 4300022
+    second: Box002.001
+  - first:
+      43: 4300024
+    second: Box001.001
+  - first:
+      43: 4300026
+    second: Tree_base.001
+  - first:
+      43: 4300028
+    second: Plane001.001
+  - first:
+      43: 4300030
+    second: bed.001
+  - first:
+      64: 6400000
+    second: bed.001
+  - first:
+      64: 6400002
+    second: Box001.001
+  - first:
+      64: 6400004
+    second: Box002.001
+  - first:
+      64: 6400006
+    second: Box005.001
+  - first:
+      64: 6400008
+    second: Cylinder.015
+  - first:
+      64: 6400010
+    second: Cylinder.016
+  - first:
+      64: 6400012
+    second: Cylinder001.002
+  - first:
+      64: 6400014
+    second: Cylinder001.003
+  - first:
+      64: 6400016
+    second: Line002.001
+  - first:
+      64: 6400018
+    second: Loft001.001
+  - first:
+      64: 6400020
+    second: Loft002.001
+  - first:
+      64: 6400022
+    second: Plane001.001
+  - first:
+      64: 6400024
+    second: Plane002.001
+  - first:
+      64: 6400026
+    second: Plane003.002
+  - first:
+      64: 6400028
+    second: Plane004.001
+  - first:
+      64: 6400030
+    second: Tree_base.001
+  - first:
+      41386430: 2186277476908879412
+    second: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lamp.001
+    second: {fileID: 2100000, guid: f1737ec4635e8794b9ec810024d2d354, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal.001
+    second: {fileID: 2100000, guid: c2f44fe33440ca54d844fb9f845a98be, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plastic.002
+    second: {fileID: 2100000, guid: 2da6ac751922b9f48b76966068d8e6dc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plastic2.001
+    second: {fileID: 2100000, guid: 0c7bb2f48b4c02a4cae3ab4ed11bc4f7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plastic_dark.002
+    second: {fileID: 2100000, guid: 1ede80f5d0ba2c445981f0430a5851a9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: neon.blue.002
+    second: {fileID: 2100000, guid: 1b776c136787cac4fbdda125bddbe2b3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: neon_pink.002
+    second: {fileID: 2100000, guid: a90b91ea46c79244eabc8ddb9afb21d9, type: 2}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -145,34 +396,45 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 1
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 1
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -182,14 +444,17 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 0
   humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
