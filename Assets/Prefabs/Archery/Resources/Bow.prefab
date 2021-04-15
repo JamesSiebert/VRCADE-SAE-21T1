@@ -138,12 +138,12 @@ MonoBehaviour:
   m_OnSelectExited:
     m_PersistentCalls:
       m_Calls: []
-  m_ShowInteractableHoverMeshes: 0
-  m_InteractableHoverMeshMaterial: {fileID: 0}
-  m_InteractableCantHoverMeshMaterial: {fileID: 0}
+  m_ShowInteractableHoverMeshes: 1
+  m_InteractableHoverMeshMaterial: {fileID: 2100000, guid: f0a6a86e908f6204ab518387a784ed36, type: 2}
+  m_InteractableCantHoverMeshMaterial: {fileID: 2100000, guid: 085f0706ad3515b40a2be9b8d2775c26, type: 2}
   m_SocketActive: 1
   m_InteractableHoverScale: 1
-  m_RecycleDelayTime: 1
+  m_RecycleDelayTime: 0.2
   releaseThreshold: 0.25
 --- !u!114 &1137606935514613500
 MonoBehaviour:
@@ -495,7 +495,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2589571369817754473}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
   m_Name: 
@@ -511,7 +511,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2589571369817754473}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f38372126ddf7044d80316be5517a429, type: 3}
   m_Name: 

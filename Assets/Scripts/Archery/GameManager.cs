@@ -25,15 +25,20 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks,  I
 
     public Text uiScoreText;
     public Text uiTopScoreText;
+    public Text uiMyTopScoreText;
     public Text timeRemainingText;
 
     public string topScoreName = "NA";
     public int topScore = 0;
 
+    public int myTopScore = 0;
+
     public string lastScoreResponseData;
+
+    public bool initialScoreRequestCalled;
     
 
-    private PhotonView photonView;
+    public PhotonView photonView;
     
     private void Awake()
     {
@@ -45,7 +50,7 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks,  I
     {
         maxGameTime = GameSessionSoundtrack.length;
         PlayBGMusic();
-        this.StartCoroutine(this.TopScoreRequest(this.TopScoreResponseCallback));
+        
     } 
 
     void Update()
@@ -55,15 +60,21 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks,  I
             secondsRemaining -= Time.deltaTime;
             UpdateTimerUI();
             
-            if (secondsRemaining < 0)
+            if (secondsRemaining <= 0)
             {
                 EndGameSession();
             }
         }
 
-        if (Input.GetKeyDown("space"))
+        if (!initialScoreRequestCalled && photonView != null)
         {
-            StartGameSession();
+            RequestOwnership();
+            if (this.photonView.IsMine)
+            {
+                // Get to score values
+                string playerId = photonView.Owner.NickName;
+                this.StartCoroutine(this.TopScoreRequest(playerId, this.TopScoreResponseCallback));
+            }
         }
     }
 
@@ -83,8 +94,11 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks,  I
 
     public void UpdateScoreUI()
     {
-        // Game active
-        if (timerActive)
+        if (scoresDictionary.Count == 0)
+        {
+            uiScoreText.text = "Start game to track scores";
+        }
+        else
         {
             // Create empty string
             string scoreText = "";
@@ -98,50 +112,13 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks,  I
             // print scores to game
             uiScoreText.text = "Scores: \n" + scoreText;
         }
-        else
-        {
-            // FREE PLAY
-            uiScoreText.text = "FREE PLAY MODE\nStart game to track scores";
-        }
 
         uiTopScoreText.text = "Top Score: \n" + topScoreName + ": " + topScore.ToString();
+        uiMyTopScoreText.text = "Your Top Score: " + myTopScore.ToString();
     }
 
     
-    private IEnumerator TopScoreRequest(Action<string> callback = null)
-    {
-        string postURL = "http://vrcade.jamessiebert.com/api/get_scores";
 
-        List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
-        formData.Add(new MultipartFormDataSection("data",
-            "{\"player_id\": \"\"}"));
-        
-        UnityWebRequest request = UnityWebRequest.Post(postURL, formData);
-        
-        // Wait for the response and then get our data
-        yield return request.SendWebRequest();
-        var data = request.downloadHandler.text;
-        
-        if (callback != null)
-            callback(data);
-    }
-    
-    
-    // Callback to act on our response data
-    private void TopScoreResponseCallback(string data)
-    {
-        Debug.Log("Get High Scores Response: " + data);
-        lastScoreResponseData = data;
-
-        // unpack json response
-        ScoreResponse jsonResponseObject = ScoreResponse.CreateFromJSON(data);
-
-        // Update variables
-        topScore = jsonResponseObject.archeryTop;
-        topScoreName = jsonResponseObject.archeryTopName;
-
-        UpdateScoreUI();
-    }
     
     
 
@@ -177,24 +154,26 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks,  I
 
     public void RecordHit(string playerName)
     {
-        RequestOwnership();
-
-        if (this.photonView.IsMine)
+        if (timerActive)
         {
-            // does the player have a score in the dictionary yet?
-            if (scoresDictionary.ContainsKey(playerName))
+            RequestOwnership();
+            if (this.photonView.IsMine)
             {
-                // player name exists in dictionary
-                scoresDictionary[playerName] = scoresDictionary[playerName] + 1;
+                // does the player have a score in the dictionary yet?
+                if (scoresDictionary.ContainsKey(playerName))
+                {
+                    // player name exists in dictionary
+                    scoresDictionary[playerName] = scoresDictionary[playerName] + 1;
+                }
+                else
+                {
+                    // if no create one and use the supplied name
+                    scoresDictionary.Add (playerName, 1);
+                }
             }
-            else
-            {
-                // if no create one and use the supplied name
-                scoresDictionary.Add (playerName, 1);
-            }
-        }
 
-        UpdateScoreUI();
+            UpdateScoreUI();
+        }
     }
 
     public void StartGameSession()
@@ -215,8 +194,9 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks,  I
         timerActive = false;
         
         // if game was played until the end
-        if (secondsRemaining == 0)
+        if (secondsRemaining <= 0)
         {
+            Debug.Log("calling save game");
             SaveScores();
         }
         
@@ -226,15 +206,99 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks,  I
     
     public void SaveScores()
     {
-        // I am the owner of this object, this will only execute on 1 pc
+        Debug.Log("START SAVE SCORE");
+        RequestOwnership();
+        
+        // I am the owner of this object, this will only execute on 1 pc not all clients
         if (this.photonView.IsMine)
         {
-            Debug.Log("SAVE SCORE > API");
-            
-            
-            this.StartCoroutine(this.TopScoreRequest(this.TopScoreResponseCallback));
+            Debug.Log("Save view is mine");
+            // If this players name exists in the scores dictionary post their score
+            if (scoresDictionary.ContainsKey(photonView.Owner.NickName))
+            {
+                Debug.Log("key exists in scores dict");
+                
+                string playerId = photonView.Owner.NickName;
+                string roomId = "Room_Archery";
+                int score = scoresDictionary[playerId];
+
+                // Post score to server
+                this.StartCoroutine(this.PostHighScoreRequest(playerId, roomId, score, this.TopScoreResponseCallback));
+            }
+            else
+            {
+                Debug.Log("ERROR: No nickname found. Nickname: " + photonView.Owner.NickName + "\n DICTIONARY DUMP:");
+                foreach (KeyValuePair<string, int> kvp in scoresDictionary)
+                {
+                    Debug.Log(kvp.Key + ": " + kvp.Value.ToString());
+                }
+            }
         }
     }
+    
+    // For getting the latest high score
+    private IEnumerator TopScoreRequest(string playerId, Action<string> callback = null)
+    {
+        initialScoreRequestCalled = true;
+        
+        string postURL = "http://vrcade.jamessiebert.com/api/get_scores";
+
+        List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
+        formData.Add(new MultipartFormDataSection("data",
+            "{\"player_id\": \"" + playerId + "\"}"));
+        
+        UnityWebRequest request = UnityWebRequest.Post(postURL, formData);
+        
+        // Wait for the response and then get our data
+        yield return request.SendWebRequest();
+        var data = request.downloadHandler.text;
+        
+        if (callback != null)
+            callback(data);
+    }
+    
+
+    // For posting a high score
+    private IEnumerator PostHighScoreRequest(string playerId, string roomId, int score, Action<string> callback = null)
+    {
+        Debug.Log("START POST REQUEST");
+        
+        string postHighScoreURL = "http://vrcade.jamessiebert.com/api/post_score";
+        
+        List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
+        formData.Add(new MultipartFormDataSection("data", "{\"player_id\": \"" + playerId + "\" , \"room_id\": \"" + roomId + "\"  , \"score\": \"" + score + "\" }"));
+
+        UnityWebRequest request = UnityWebRequest.Post(postHighScoreURL, formData);
+        Debug.Log("Score Post Sent");
+
+        // Wait for the response and then get our data
+        yield return request.SendWebRequest();
+        var data = request.downloadHandler.text;
+
+        if (callback != null)
+            callback(data);
+    }
+    
+    // Callback to act on our response data (both top score and post score) updates top score display
+    private void TopScoreResponseCallback(string data)
+    {
+        // Log
+        Debug.Log("Scores Response: " + data);
+        lastScoreResponseData = data;
+
+        // unpack json response
+        ScoreResponse jsonResponseObject = ScoreResponse.CreateFromJSON(data);
+
+        // Update variables with unpacked json data
+        topScore = jsonResponseObject.archeryTop;
+        topScoreName = jsonResponseObject.archeryTopName;
+        myTopScore = jsonResponseObject.archeryPlayerBest;
+
+        // Update high score UI
+        UpdateScoreUI();
+    }
+    
+    
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {

@@ -10,7 +10,8 @@ public class Arrow : XRGrabInteractable
      * functionality happens when arrow disconnected
      * 
      */
-    
+
+    private PhotonView photonView;
     
     [Header("Settings")]
     public float speed = 2000.0f;
@@ -32,6 +33,7 @@ public class Arrow : XRGrabInteractable
         base.Awake();
         collider = GetComponent<Collider>();
         rigidbody = GetComponent<Rigidbody>();
+        photonView = GetComponent<PhotonView>();
     }
 
     protected override void OnSelectEntering(SelectEnterEventArgs args)
@@ -68,6 +70,13 @@ public class Arrow : XRGrabInteractable
             SetLaunch(true);
             UpdateLastPosition();
             ApplyForce(notch.PullMeasurer);
+
+            if (this.photonView.IsMine)
+            {
+                ownerName = photonView.Owner.NickName;
+                Debug.Log("arrow owner name set: " + ownerName);
+            }
+            
         }
     }
 

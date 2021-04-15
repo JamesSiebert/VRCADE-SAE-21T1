@@ -36,7 +36,9 @@ public class Quiver : XRBaseInteractable
         // Create arrow, and get arrow component
         GameObject arrowObject = PhotonNetwork.Instantiate(arrowPrefab.name, orientation.position, orientation.rotation);
         //GameObject arrowObject = Instantiate(arrowPrefab, orientation.position, orientation.rotation);
-        
+
         return arrowObject.GetComponent<Arrow>();
     }
+    
+
 }
