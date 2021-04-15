@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -24,6 +25,7 @@ public class Arrow : XRGrabInteractable
 
     private new Collider collider = null;
     private new Rigidbody rigidbody = null;
+    private Renderer[] rendArray;
 
     private Vector3 lastPosition = Vector3.zero;
     private bool launched = false;
@@ -34,6 +36,7 @@ public class Arrow : XRGrabInteractable
         collider = GetComponent<Collider>();
         rigidbody = GetComponent<Rigidbody>();
         photonView = GetComponent<PhotonView>();
+        rendArray = GetComponentsInChildren<Renderer>();
     }
 
     protected override void OnSelectEntering(SelectEnterEventArgs args)
@@ -76,7 +79,6 @@ public class Arrow : XRGrabInteractable
                 ownerName = photonView.Owner.NickName;
                 Debug.Log("arrow owner name set: " + ownerName);
             }
-            
         }
     }
 
@@ -113,8 +115,6 @@ public class Arrow : XRGrabInteractable
                 {
                     launched = false;
                 }
-                    
-                
 
                 UpdateLastPosition();
             }
@@ -169,8 +169,22 @@ public class Arrow : XRGrabInteractable
         if (hittable != null)
         {
             hittable.Hit(this);
-            PhotonNetwork.Destroy(this.gameObject);
+
+            foreach (var rend in rendArray)
+            {
+                rend.enabled = false;
+            }
+
+            StartCoroutine(DelayedDestroy());
+
             //Destroy(this.gameObject);
         }
     }
+    
+    // destroy arrow after target
+    IEnumerator DelayedDestroy()
+        {
+            yield return new WaitForSeconds(5);
+            PhotonNetwork.Destroy(this.gameObject);
+        }
 }

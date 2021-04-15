@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks,  I
     {
         maxGameTime = GameSessionSoundtrack.length;
         PlayBGMusic();
-        
+        StartCoroutine(GetInitialScore());
     } 
 
     void Update()
@@ -65,18 +65,18 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks,  I
                 EndGameSession();
             }
         }
-
-        if (!initialScoreRequestCalled && photonView != null)
-        {
-            RequestOwnership();
-            if (this.photonView.IsMine)
-            {
-                // Get to score values
-                string playerId = photonView.Owner.NickName;
-                this.StartCoroutine(this.TopScoreRequest(playerId, this.TopScoreResponseCallback));
-            }
-        }
     }
+
+    
+    IEnumerator GetInitialScore()
+    {
+        yield return new WaitForSeconds(2);
+
+        string playerId = GetComponent<PhotonView>().Controller.NickName;
+        this.StartCoroutine(this.TopScoreRequest(playerId, this.TopScoreResponseCallback));
+    }
+
+
 
     public void PlayBGMusic()
     {
