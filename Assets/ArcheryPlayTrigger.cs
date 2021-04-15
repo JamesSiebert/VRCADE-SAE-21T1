@@ -29,17 +29,16 @@ public class ArcheryPlayTrigger : MonoBehaviour, IArrowHittable
             // Game is in play mode, end session
             gameManager.EndGameSession();
             rend.material = gameOffMaterial;
-            Destroy(arrow);
+            
+            arrow.MakeInvisible();
         }
         else
         {
             // Start play mode
             gameManager.StartGameSession();
             rend.material = gameOnMaterial;
-            Destroy(arrow);
             
+            arrow.MakeInvisible();
         }
-        
     }
-
 }

@@ -170,14 +170,19 @@ public class Arrow : XRGrabInteractable
         {
             hittable.Hit(this);
 
-            foreach (var rend in rendArray)
-            {
-                rend.enabled = false;
-            }
+            MakeInvisible();
 
             StartCoroutine(DelayedDestroy());
 
             //Destroy(this.gameObject);
+        }
+    }
+
+    public void MakeInvisible()
+    {
+        foreach (var rend in rendArray)
+        {
+            rend.enabled = false;
         }
     }
     
