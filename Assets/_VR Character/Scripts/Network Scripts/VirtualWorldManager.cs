@@ -31,7 +31,7 @@ public class VirtualWorldManager : MonoBehaviourPunCallbacks
     }
 
 
-    #region Photo Callback Methods
+    #region Photon Callback Methods
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {

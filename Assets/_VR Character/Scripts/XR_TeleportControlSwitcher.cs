@@ -24,7 +24,7 @@ public class XR_TeleportControlSwitcher : MonoBehaviour
     public bool teleportOnDeactivate;
     public bool teleportOnTrigger;
     public bool useDirectionalTeleporting;
-    public GameObject DirectionalMarkerPrefab;
+    public GameObject directionalReticlePrefab;
     public JS_XRInputEventTrigger XRInputEventTriggerRef;    // get controller rotations
     [SerializeField] private TeleportationProvider provider;
     
@@ -53,9 +53,6 @@ public class XR_TeleportControlSwitcher : MonoBehaviour
     public Transform avatarRightHand;
 
     public Vector3 headPositionOffset = new Vector3(0,-0.9f,0);
-    
-    // rotate y degrees around y axis
-    public GameObject avatarHandsParent;
 
     private int teleportationLayer;
 
@@ -365,10 +362,10 @@ public class XR_TeleportControlSwitcher : MonoBehaviour
 
     public void SpawnDirectionalMarkers()
     {
-        leftDirectionalMarkerRef = Instantiate(DirectionalMarkerPrefab, new Vector3(0,0,0), Quaternion.identity);
+        leftDirectionalMarkerRef = Instantiate(directionalReticlePrefab, new Vector3(0,0,0), Quaternion.identity);
         leftDirectionalMarkerRef.SetActive(false);
         
-        rightDirectionalMarkerRef = Instantiate(DirectionalMarkerPrefab, new Vector3(0,0,0), Quaternion.identity);
+        rightDirectionalMarkerRef = Instantiate(directionalReticlePrefab, new Vector3(0,0,0), Quaternion.identity);
         rightDirectionalMarkerRef.SetActive(false);
     }
 }
