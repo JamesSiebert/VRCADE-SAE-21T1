@@ -5134,8 +5134,8 @@ MonoBehaviour:
   timerActive: 0
   maxGameTime: 0
   secondsRemaining: 0
-  BGSoundtrack: {fileID: 8300000, guid: 81e306b3212e30843a5198925b504b7c, type: 3}
-  GameSessionSoundtrack: {fileID: 8300000, guid: 1e96a7a085005db40b694c1c04f15d2b, type: 3}
+  BGSoundtrack: {fileID: 8300000, guid: c9746f29f69824528a011f80e8812699, type: 3}
+  GameSessionSoundtrack: {fileID: 8300000, guid: 70c803cc2692b9841b55ac6f47a1220d, type: 3}
   audioSource: {fileID: 698841884}
   uiScoreText: {fileID: 1105600795}
   uiTopScoreText: {fileID: 566545216}
