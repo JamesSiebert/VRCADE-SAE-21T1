@@ -1,21 +1,28 @@
+using System;
+using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine;
 
-public class ArcheryPlayTrigger : MonoBehaviour, IArrowHittable
+public class ArcheryPlayTrigger : MonoBehaviourPunCallbacks, IArrowHittable
 {
     public GameManager gameManager;
     private AudioSource audioSource;
     private Renderer rend;
+    public PhotonView photonView;
 
-    public Material gameOnMaterial;
-    public Material gameOffMaterial;
-    
-    
-    
+    public Material gameActiveMaterial;
+    public Material gameInactiveMaterial;
+
+    private void Awake()
+    {
+        photonView = GetComponent<PhotonView>();
+    }
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         rend = GetComponent<Renderer>();
-        rend.material = gameOffMaterial;
+        rend.material = gameInactiveMaterial;
     }
     
     
@@ -26,19 +33,39 @@ public class ArcheryPlayTrigger : MonoBehaviour, IArrowHittable
 
         if (gameManager.timerActive)
         {
+            // Initiate Stop game
+            
             // Game is in play mode, end session
             gameManager.EndGameSession();
-            rend.material = gameOffMaterial;
+            // rend.material = gameOffMaterial;
+            photonView.RPC("RPC_DeactivateGameCube", RpcTarget.AllBuffered);
             
-            arrow.MakeInvisible();
+            
+            //arrow.MakeInvisible();
         }
         else
         {
-            // Start play mode
-            gameManager.StartGameSession();
-            rend.material = gameOnMaterial;
+            // initiate start game
             
-            arrow.MakeInvisible();
+            gameManager.StartGameSession();
+            
+            photonView.RPC("RPC_ActivateGameCube", RpcTarget.AllBuffered);
+            
+            //arrow.MakeInvisible();
         }
     }
+
+    [PunRPC]
+    public void RPC_ActivateGameCube()
+    {
+        rend.material = gameActiveMaterial;
+    }
+    
+    [PunRPC]
+    public void RPC_DeactivateGameCube()
+    {
+        rend.material = gameInactiveMaterial;
+    }
+    
+    
 }

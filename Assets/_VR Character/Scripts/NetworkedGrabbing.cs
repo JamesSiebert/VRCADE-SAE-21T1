@@ -60,7 +60,6 @@ public class NetworkedGrabbing : MonoBehaviourPunCallbacks, IPunOwnershipCallbac
     {
         Debug.Log("Network Grab start");
         
-        //ISSUE HERE
         m_photon_view.RPC("StartNetworkedGrabbing", RpcTarget.AllBuffered); // RPC - AllBuffered calls method and applies to all players even players yet to join
 
         if(m_photon_view.Owner == PhotonNetwork.LocalPlayer)

@@ -118,10 +118,6 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks,  I
     }
 
     
-
-    
-    
-
     public void UpdateTimerUI()
     {
         float timeText = Mathf.Round(secondsRemaining);
@@ -152,34 +148,51 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks,  I
         }
     }
 
+    
+    
     public void RecordHit(string playerName)
     {
-        if (timerActive)
+        if (timerActive && this.photonView.IsMine)
         {
-            RequestOwnership();
-            if (this.photonView.IsMine)
-            {
-                // does the player have a score in the dictionary yet?
-                if (scoresDictionary.ContainsKey(playerName))
-                {
-                    // player name exists in dictionary
-                    scoresDictionary[playerName] = scoresDictionary[playerName] + 1;
-                }
-                else
-                {
-                    // if no create one and use the supplied name
-                    scoresDictionary.Add (playerName, 1);
-                }
-            }
-
-            UpdateScoreUI();
+            photonView.RPC("RPC_RecordHit", RpcTarget.AllBuffered, playerName);
         }
     }
+
+    [PunRPC]
+    void RPC_RecordHit(string playerName)
+    {
+        //RequestOwnership();
+
+
+        // does the player have a score in the dictionary yet?
+        if (scoresDictionary.ContainsKey(playerName))
+        {
+            // player name exists in dictionary
+            scoresDictionary[playerName] = scoresDictionary[playerName] + 1;
+        }
+        else
+        {
+            // if no create one and use the supplied name
+            scoresDictionary.Add (playerName, 1);
+        }
+
+
+        UpdateScoreUI();
+    }
+    
+    
+    
 
     public void StartGameSession()
     {
         RequestOwnership();
         
+        photonView.RPC("RPC_StartGameSession", RpcTarget.AllBuffered);
+    }
+    
+    [PunRPC]
+    public void RPC_StartGameSession()
+    {
         NetworkReset(); // Set player scores to 0
         LocalReset(); // reset timer and update ui
         
@@ -187,10 +200,18 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks,  I
         StartGameSessionMusic();
     }
     
+    
     public void EndGameSession()
     {
-        RequestOwnership();
+        //RequestOwnership();
         
+        photonView.RPC("RPC_EndGameSession", RpcTarget.AllBuffered);
+    }
+    
+    
+    [PunRPC]
+    public void RPC_EndGameSession()
+    {
         timerActive = false;
         
         // if game was played until the end
@@ -199,7 +220,7 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks,  I
             Debug.Log("calling save game");
             SaveScores();
         }
-        
+
         PlayBGMusic();
         LocalReset();
     }
