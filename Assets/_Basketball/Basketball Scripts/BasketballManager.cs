@@ -12,10 +12,15 @@ public class BasketballManager : MonoBehaviour
     public int numberOfBalls = 0;
     
     //Time Stuff
-    public GameObject timeLeftText1;
-    public GameObject timeLeftText2;
-    public GameObject timeLeftText3;
-    public GameObject timeLeftText4;
+    //public GameObject timeLeftText1;
+    //public GameObject timeLeftText2;
+    //public GameObject timeLeftText3;
+    //public GameObject timeLeftText4;
+
+    public Text timeLeftText1;
+    public Text timeLeftText2;
+    public Text timeLeftText3;
+    public Text timeLeftText4;
 
     public static float timeLeft1 = 60;
     public static float timeLeft2 = 60;
@@ -58,10 +63,15 @@ public class BasketballManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeLeftText1.GetComponent<Text>().text = timeLeft1.ToString("F0");
-        timeLeftText2.GetComponent<Text>().text = timeLeft1.ToString("F0");
-        timeLeftText3.GetComponent<Text>().text = timeLeft1.ToString("F0");
-        timeLeftText4.GetComponent<Text>().text = timeLeft1.ToString("F0");
+        //timeLeftText1.GetComponent<Text>().text = timeLeft1.ToString("F0");
+        //timeLeftText2.GetComponent<Text>().text = timeLeft1.ToString("F0");
+        //timeLeftText3.GetComponent<Text>().text = timeLeft1.ToString("F0");
+        //timeLeftText4.GetComponent<Text>().text = timeLeft1.ToString("F0");
+
+        timeLeftText1.text = timeLeft1.ToString("F0");
+        timeLeftText2.text = timeLeft2.ToString("F0");
+        timeLeftText3.text = timeLeft3.ToString("F0");
+        timeLeftText4.text = timeLeft4.ToString("F0");
 
         if (timer1IsRunning)
         {
