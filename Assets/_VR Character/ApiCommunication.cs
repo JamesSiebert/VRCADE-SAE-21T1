@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
@@ -25,6 +26,10 @@ public class ApiCommunication : MonoBehaviourPunCallbacks
     public string lastResponseData = "";
     public string lastScoreResponseData = "";
     public int creditBalance = 0;
+    
+    public TextMeshProUGUI uiCameraBalanceText;
+    public TextMeshProUGUI uiHandBalanceText;
+    public GameObject balancePanel;
 
     
     //{"airHockeyTop":0,
@@ -42,7 +47,7 @@ public class ApiCommunication : MonoBehaviourPunCallbacks
     public int archeryPlayerBest = 0;
 
     public bool playEnabled = true;
-    public int minPlayCredit = -500; // $5
+    public int minPlayCredit = -500; // 500 = $5
     
     public UnityEvent OnPlayEnabled;
     public UnityEvent OnPlayDisabled;
@@ -96,8 +101,14 @@ public class ApiCommunication : MonoBehaviourPunCallbacks
         CreditResponse jsonResponseObject = CreditResponse.CreateFromJSON(data);
         creditBalance = jsonResponseObject.balance;
         
+        uiCameraBalanceText.text = "Balance: $" + ((float)creditBalance / 100).ToString();
+        uiHandBalanceText.text = "Balance: $" + ((float)creditBalance / 100).ToString();
+        
         if (creditBalance < minPlayCredit)
         {
+            // turn on low credit ui
+            balancePanel.SetActive(true);
+            
             // Credit below min
             if (playEnabled)
             {
@@ -108,6 +119,9 @@ public class ApiCommunication : MonoBehaviourPunCallbacks
         }
         else
         {
+            // turn off low credit ui
+            balancePanel.SetActive(false);
+            
             // Credit above min
             if (!playEnabled)
             {
@@ -149,6 +163,20 @@ public class ApiCommunication : MonoBehaviourPunCallbacks
 
         CreditResponse jsonResponseObject = CreditResponse.CreateFromJSON(data);
         creditBalance = jsonResponseObject.balance;
+        
+        uiCameraBalanceText.text = "Balance: $" + ((float)creditBalance / 100).ToString();
+        uiHandBalanceText.text = "Balance: $" + ((float)creditBalance / 100).ToString();
+        
+        if (creditBalance < minPlayCredit)
+        {
+            // turn on low credit ui
+            balancePanel.SetActive(true);
+        }
+        else
+        {
+            // turn off low credit ui
+            balancePanel.SetActive(false);
+        }
     }
 
 
@@ -181,6 +209,21 @@ public class ApiCommunication : MonoBehaviourPunCallbacks
 
         CreditResponse jsonResponseObject = CreditResponse.CreateFromJSON(data);
         creditBalance = jsonResponseObject.balance;
+        
+        uiCameraBalanceText.text = "Balance: $" + ((float)creditBalance / 100).ToString();
+        uiHandBalanceText.text = "Balance: $" + ((float)creditBalance / 100).ToString();
+        
+        if (creditBalance < minPlayCredit)
+        {
+            // turn on low credit ui
+            balancePanel.SetActive(true);
+        }
+        else
+        {
+            // turn off low credit ui
+            balancePanel.SetActive(false);
+        }
+
     }
     
     
