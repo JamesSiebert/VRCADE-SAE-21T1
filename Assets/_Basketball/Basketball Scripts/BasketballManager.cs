@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class BasketballManager : MonoBehaviour
 {
+    public BasketballScoreController basketballScoreController;
     //Basketballs
     public GameObject Machine1BasketBall;
     public GameObject Machine2BasketBall;
@@ -85,6 +86,7 @@ public class BasketballManager : MonoBehaviour
                 Debug.Log("Timer has run out!");
                 timeLeft1 = 0;
                 timer1IsRunning = false;
+                StartCoroutine(PostScore(BasketballCollider.bballScore1));
             }
         }
 
@@ -100,6 +102,7 @@ public class BasketballManager : MonoBehaviour
                 Debug.Log("Timer has run out!");
                 timeLeft2 = 0;
                 timer2IsRunning = false;
+                StartCoroutine(PostScore(BasketballCollider.bballScore2));
             }
         }
 
@@ -115,6 +118,7 @@ public class BasketballManager : MonoBehaviour
                 Debug.Log("Timer has run out!");
                 timeLeft3 = 0;
                 timer3IsRunning = false;
+                StartCoroutine(PostScore(BasketballCollider.bballScore3));
             }
         }
 
@@ -130,6 +134,7 @@ public class BasketballManager : MonoBehaviour
                 Debug.Log("Timer has run out!");
                 timeLeft4 = 0;
                 timer4IsRunning = false;
+                StartCoroutine(PostScore(BasketballCollider.bballScore4));
             }
         }
 
@@ -307,5 +312,21 @@ public class BasketballManager : MonoBehaviour
             Destroy(go);
         }
     }
+
+    IEnumerator PostScore(int score)
+    {
+        //Print the time of when the function is first called.
+        Debug.Log("Start Coroutine - wait 5");
+
+        //yield on a new YieldInstruction that waits for 5 seconds.
+        yield return new WaitForSeconds(5);
+
+        // POST SCORE TO SERVER
+        basketballScoreController.SaveScores(score);
+
+        //After we have waited 5 seconds print the time again.
+        Debug.Log("Finished Coroutine");
+    }
+
 }
 
