@@ -19,6 +19,9 @@ public class Arrow : XRGrabInteractable
 
     public string ownerName = "TEST";
 
+    [Header("Audio")]
+    public AudioSource aTravel;
+
     [Header("Hit")]
     public Transform tip = null;
     public LayerMask layerMask = ~Physics.IgnoreRaycastLayer;
@@ -73,6 +76,7 @@ public class Arrow : XRGrabInteractable
             SetLaunch(true);
             UpdateLastPosition();
             ApplyForce(notch.PullMeasurer);
+            aTravel.Play();
 
             if (this.photonView.IsMine)
             {
