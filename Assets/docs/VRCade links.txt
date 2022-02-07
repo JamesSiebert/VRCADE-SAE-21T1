@@ -1,0 +1,11 @@
+Itchi.io link: https://jamessiebert.itch.io/vrcade
+
+Google drive team folder link: https://drive.google.com/drive/folders/1-SxYpzAhIz0yj3mYKtCf6i18yHC-kfS0?usp=sharing
+
+Github Repo: https://github.com/JamesSiebert/SAE-21T1-VR.git
+
+Kanban: https://sae-games.atlassian.net/jira/software/c/projects/VC/boards/7/roadmap
+
+Web API Github Repo: https://github.com/JamesSiebert/vrcade-api.git
+
+Vrcade player analytics: http://vrcade.jamessiebert.com/
